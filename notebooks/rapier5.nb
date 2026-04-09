@@ -1,0 +1,317 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 15.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[     11362,        307]
+NotebookOptionsPosition[     10511,        286]
+NotebookOutlinePosition[     10903,        302]
+CellTagsIndexPosition[     10860,        299]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{"Capsule", "+", 
+    RowBox[{"Floor", " ", "minimal", " ", "Rapier", " ", "example"}]}], 
+   "*)"}], "\[IndentingNewLine]", 
+  RowBox[{"PacletDirectoryLoad", "[", 
+   RowBox[{"FileNameJoin", "[", 
+    RowBox[{"{", 
+     RowBox[{
+      RowBox[{"DirectoryName", "[", 
+       RowBox[{"NotebookDirectory", "[", "]"}], "]"}], ",", "\"\<..\>\"", 
+      ",", "\"\<Rapier\>\""}], "}"}], "]"}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9847583302723103`*^9, 3.984758357046417*^9}},
+ CellLabel->"In[53]:=",ExpressionUUID->"2a2c3ea5-f532-485d-9804-63f19c27b1bb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NotebookDirectory", "nosv", 
+   "\"The notebook \\!\\(\\*TemplateBox[Association[RuleDelayed[\\\"obj\\\", \
+NotebookObject[\\\"e1236c61-7649-401f-975a-43db3db8ddaa\\\", \
+\\\"bcf50587-c293-409d-a438-59eefeeb5b59\\\"]], Rule[\\\"label\\\", \
+\\\"\\\\\\\"Untitled-2\\\\\\\"\\\"]], \\\"NotebookObjectUUIDsUnsaved\\\"]\\) \
+is not saved.\"", 2, 53, 11, 26057376854980269560, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{{3.98475835325329*^9, 3.9847583573558683`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[53]:=",ExpressionUUID->"fb14fb64-880f-4c84-8c65-21ba6e2943c9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "DirectoryName", "string", 
+   "\"String expected at position \\!\\(\\*RowBox[{\\\"1\\\"}]\\) in \
+\\!\\(\\*RowBox[{\\\"DirectoryName\\\", \\\"[\\\", \\\"$Failed\\\", \
+\\\"]\\\"}]\\).\"", 2, 53, 12, 26057376854980269560, "Local"},
+  "MessageTemplate",
+  BaseStyle->"MSG"]], "Message",
+ CellChangeTimes->{{3.98475835325329*^9, 3.984758357365163*^9}},
+ CellLabel->
+  "During evaluation of \
+In[53]:=",ExpressionUUID->"0519e6a0-d7c6-4d21-a085-5ad7a14a0376"],
+
+Cell[BoxData[
+ RowBox[{"PacletDirectoryLoad", "[", 
+  RowBox[{"FileNameJoin", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"DirectoryName", "[", "$Failed", "]"}], ",", "\<\"..\"\>", 
+     ",", "\<\"Rapier\"\>"}], "}"}], "]"}], "]"}]], "Output",
+ CellChangeTimes->{{3.9847583532555656`*^9, 3.984758357366868*^9}},
+ CellLabel->"Out[53]=",ExpressionUUID->"b28a2764-1660-49d5-97bc-fe9735700132"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"Needs", "[", "\"\<Rapier`\>\"", "]"}], ";"}]], "Input",
+ CellChangeTimes->{{3.9847583302723103`*^9, 
+  3.984758350995973*^9}},ExpressionUUID->"8199b962-b7d3-4801-9fb0-\
+0d023a82f577"],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"quatToMatrix", "[", 
+      RowBox[{"{", 
+       RowBox[{"qx_", ",", "qy_", ",", "qz_", ",", "qw_"}], "}"}], "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"1", "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"qy", "^", "2"}], "+", 
+             RowBox[{"qz", "^", "2"}]}], ")"}]}]}], ",", 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"qx", " ", "qy"}], "-", 
+            RowBox[{"qw", " ", "qz"}]}], ")"}]}], ",", 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"qx", " ", "qz"}], "+", 
+            RowBox[{"qw", " ", "qy"}]}], ")"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"qx", " ", "qy"}], "+", 
+            RowBox[{"qw", " ", "qz"}]}], ")"}]}], ",", 
+         RowBox[{"1", "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"qx", "^", "2"}], "+", 
+             RowBox[{"qz", "^", "2"}]}], ")"}]}]}], ",", 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"qy", " ", "qz"}], "-", 
+            RowBox[{"qw", " ", "qx"}]}], ")"}]}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"qx", " ", "qz"}], "-", 
+            RowBox[{"qw", " ", "qy"}]}], ")"}]}], ",", 
+         RowBox[{"2", " ", 
+          RowBox[{"(", 
+           RowBox[{
+            RowBox[{"qy", " ", "qz"}], "+", 
+            RowBox[{"qw", " ", "qx"}]}], ")"}]}], ",", 
+         RowBox[{"1", "-", 
+          RowBox[{"2", " ", 
+           RowBox[{"(", 
+            RowBox[{
+             RowBox[{"qx", "^", "2"}], "+", 
+             RowBox[{"qy", "^", "2"}]}], ")"}]}]}]}], "}"}]}], "}"}]}], ";"}],
+    "\[IndentingNewLine]", "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"rowToTransform", "[", "row_", "]"}], ":=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"quatToMatrix", "[", 
+        RowBox[{"row", "[", 
+         RowBox[{"[", 
+          RowBox[{"5", ";;", "8"}], "]"}], "]"}], "]"}], ",", 
+       RowBox[{"row", "[", 
+        RowBox[{"[", 
+         RowBox[{"2", ";;", "4"}], "]"}], "]"}]}], "}"}]}], ";"}], "\n", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"handleToTransform", "[", "mat_", "]"}], ":=", 
+     RowBox[{"Association", "@", 
+      RowBox[{"Map", "[", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{
+           RowBox[{"#", "[", 
+            RowBox[{"[", "1", "]"}], "]"}], "->", 
+           RowBox[{"rowToTransform", "[", "#", "]"}]}], ")"}], "&"}], ",", 
+        "mat"}], "]"}]}]}], ";"}], "\[IndentingNewLine]", "\n", 
+   RowBox[{"Module", "[", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+      "worldId", ",", "floorId", ",", "capsuleBodyId", ",", "dt", ",", 
+       "steps", ",", "frames"}], "}"}], ",", 
+     RowBox[{
+      RowBox[{"worldId", "=", 
+       RowBox[{"RapierWorldCreate", "[", 
+        RowBox[{"{", 
+         RowBox[{"0.0", ",", "0.0", ",", 
+          RowBox[{"-", "9.81"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"floorId", "=", 
+       RowBox[{"RapierAddRigidBody", "[", 
+        RowBox[{"worldId", ",", 
+         RowBox[{"{", 
+          RowBox[{"0.0", ",", "0.0", ",", 
+           RowBox[{"-", "1.0"}]}], "}"}], ",", "\"\<Fixed\>\""}], "]"}]}], ";",
+       "\[IndentingNewLine]", 
+      RowBox[{"RapierAddColliderCuboid", "[", 
+       RowBox[{"worldId", ",", "floorId", ",", 
+        RowBox[{"{", 
+         RowBox[{"8.0", ",", "8.0", ",", "1.0"}], "}"}], ",", "1.0"}], "]"}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"capsuleBodyId", "=", 
+       RowBox[{"RapierAddRigidBody", "[", 
+        RowBox[{"worldId", ",", 
+         RowBox[{"{", 
+          RowBox[{"0.0", ",", "0.0", ",", "5.0"}], "}"}], 
+         ",", "\"\<Dynamic\>\""}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"RapierAddColliderCapsule", "[", 
+       RowBox[{"worldId", ",", "capsuleBodyId", ",", 
+        RowBox[{"{", 
+         RowBox[{"0.6", ",", "0.25"}], "}"}], ",", "1.0"}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"dt", "=", 
+       RowBox[{"1.0", "/", "60.0"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"steps", "=", "240"}], ";", "\[IndentingNewLine]", 
+      RowBox[{"frames", "=", 
+       RowBox[{"Table", "[", 
+        RowBox[{
+         RowBox[{
+          RowBox[{"RapierWorldStep", "[", 
+           RowBox[{"worldId", ",", "1", ",", "dt"}], "]"}], ";", 
+          "\[IndentingNewLine]", 
+          RowBox[{"RapierGetBodyPositions", "[", "worldId", "]"}]}], ",", 
+         RowBox[{"{", "steps", "}"}]}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"ListAnimate", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"Module", "[", 
+           RowBox[{
+            RowBox[{"{", 
+             RowBox[{"t", "=", 
+              RowBox[{"handleToTransform", "[", "frame", "]"}]}], "}"}], ",", 
+            
+            RowBox[{"Graphics3D", "[", 
+             RowBox[{
+              RowBox[{"{", 
+               RowBox[{"Gray", ",", 
+                RowBox[{"GeometricTransformation", "[", 
+                 RowBox[{
+                  RowBox[{"Cuboid", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"-", "8"}], ",", 
+                    RowBox[{"-", "8"}], ",", 
+                    RowBox[{"-", "1"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"8", ",", "8", ",", "1"}], "}"}]}], "]"}], ",", 
+                  RowBox[{"t", "[", "floorId", "]"}]}], "]"}], ",", 
+                RowBox[{"Darker", "@", "Green"}], ",", 
+                RowBox[{"GeometricTransformation", "[", 
+                 RowBox[{
+                  RowBox[{"CapsuleShape", "[", 
+                   RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", 
+                    RowBox[{"-", "0.6"}]}], "}"}], ",", 
+                    RowBox[{"{", 
+                    RowBox[{"0", ",", "0", ",", "0.6"}], "}"}]}], "}"}], ",", 
+                    "0.25"}], "]"}], ",", 
+                  RowBox[{"t", "[", "capsuleBodyId", "]"}]}], "]"}]}], "}"}], 
+              ",", 
+              RowBox[{"PlotRange", "->", 
+               RowBox[{"{", 
+                RowBox[{
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "6"}], ",", "6"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "6"}], ",", "6"}], "}"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{
+                   RowBox[{"-", "2"}], ",", "8"}], "}"}]}], "}"}]}], ",", 
+              RowBox[{"Axes", "->", "True"}], ",", 
+              RowBox[{"Boxed", "->", "True"}]}], "]"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"frame", ",", "frames"}], "}"}]}], "]"}], ",", 
+        RowBox[{"AnimationRate", "->", "60"}]}], "]"}], ";", 
+      "\[IndentingNewLine]", 
+      RowBox[{"RapierWorldDestroy", "[", "worldId", "]"}]}]}], "]"}], 
+   "\n"}]}]], "Input",
+ CellChangeTimes->{{3.9847583302723103`*^9, 
+  3.984758349614053*^9}},ExpressionUUID->"d37b9a19-7c34-4508-a7ea-\
+0c929dd16960"]
+},
+WindowSize->{1470, 894},
+WindowMargins->{{0, Automatic}, {Automatic, 0}},
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (April 9, 2026)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"e1236c61-7649-401f-975a-43db3db8ddaa"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 603, 14, 49, "Input",ExpressionUUID->"2a2c3ea5-f532-485d-9804-63f19c27b1bb"],
+Cell[1182, 38, 638, 13, 37, "Message",ExpressionUUID->"fb14fb64-880f-4c84-8c65-21ba6e2943c9"],
+Cell[1823, 53, 486, 11, 26, "Message",ExpressionUUID->"0519e6a0-d7c6-4d21-a085-5ad7a14a0376"],
+Cell[2312, 66, 395, 8, 33, "Output",ExpressionUUID->"b28a2764-1660-49d5-97bc-fe9735700132"]
+}, Open  ]],
+Cell[2722, 77, 218, 5, 29, "Input",ExpressionUUID->"8199b962-b7d3-4801-9fb0-0d023a82f577"],
+Cell[2943, 84, 7564, 200, 478, "Input",ExpressionUUID->"d37b9a19-7c34-4508-a7ea-0c929dd16960"]
+}
+]
+*)
+
+(* End of internal cache information *)
+

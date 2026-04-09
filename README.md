@@ -18,7 +18,7 @@ Ensure you have Rust/Cargo installed, as well as the Wolfram Engine or Mathemati
    ./scripts/build.wls
    ```
 
-## Usage Example (Cuboids + Spheres + Cylinders)
+## Usage Example (Cuboids + Spheres + Cylinders + Cones + Capsules)
 
 Load the paclet from a local checkout:
 
@@ -43,7 +43,7 @@ fixedSphereId = RapierAddRigidBody[worldId, {2.0, 0.0, 0.8}, "Fixed"];
 RapierAddColliderSphere[worldId, fixedSphereId, 0.8, 1.0];
 ```
 
-Add dynamic objects (a cuboid, a sphere, and a cylinder):
+Add dynamic objects (a cuboid, a sphere, a cylinder, a cone, and a capsule):
 
 ```wl
 dynCuboidId = RapierAddRigidBody[worldId, {-1.5, 0.0, 4.5}, "Dynamic"];
@@ -54,6 +54,12 @@ RapierAddColliderSphere[worldId, dynSphereId, 0.5, 1.0];
 
 dynCylinderId = RapierAddRigidBody[worldId, {1.5, 0.0, 5.2}, "Dynamic"];
 RapierAddColliderCylinder[worldId, dynCylinderId, {0.6, 0.35}, 1.0];
+
+dynConeId = RapierAddRigidBody[worldId, {-0.8, 1.2, 5.8}, "Dynamic"];
+RapierAddColliderCone[worldId, dynConeId, {0.5, 0.3}, 1.0];
+
+dynCapsuleId = RapierAddRigidBody[worldId, {0.8, -1.2, 6.3}, "Dynamic"];
+RapierAddColliderCapsule[worldId, dynCapsuleId, {0.6, 0.25}, 1.0];
 ```
 
 Step the simulation and capture body transforms:
@@ -69,22 +75,33 @@ frames = Table[
 ];
 ```
 
-Visualize by mapping each body handle to its current position (columns `2;;4`):
+Visualize using full rigid transforms (translation + rotation) with `GeometricTransformation`:
 
 ```wl
-handleToPos[mat_] := Association @ Map[(#[[1]] -> #[[2 ;; 4]]) &, mat];
+quatToMatrix[{qx_, qy_, qz_, qw_}] := {
+  {1 - 2 (qy^2 + qz^2), 2 (qx qy - qw qz), 2 (qx qz + qw qy)},
+  {2 (qx qy + qw qz), 1 - 2 (qx^2 + qz^2), 2 (qy qz - qw qx)},
+  {2 (qx qz - qw qy), 2 (qy qz + qw qx), 1 - 2 (qx^2 + qy^2)}
+};
+
+rowToTransform[row_] := {quatToMatrix[row[[5 ;; 8]]], row[[2 ;; 4]]};
+
+handleToTransform[mat_] := Association @ Map[(#[[1]] -> rowToTransform[#]) &, mat];
 
 ListAnimate[
   Table[
-    Module[{p = handleToPos[frame]},
+    Module[{t = handleToTransform[frame]},
       Graphics3D[
         {
-          Gray, Translate[Cuboid[{-8, -8, -1}, {8, 8, 1}], p[floorId]],
-          Darker@Blue, Translate[Sphere[{0, 0, 0}, 0.8], p[fixedSphereId]],
+          Gray, GeometricTransformation[Cuboid[{-8, -8, -1}, {8, 8, 1}], t[floorId]],
+          Darker@Blue, GeometricTransformation[Sphere[{0, 0, 0}, 0.8], t[fixedSphereId]],
 
-          Orange, Translate[Cuboid[{-0.5, -0.5, -0.5}, {0.5, 0.5, 0.5}], p[dynCuboidId]],
-          Red, Translate[Sphere[{0, 0, 0}, 0.5], p[dynSphereId]],
-          Purple, Translate[Cylinder[{{0, 0, -0.6}, {0, 0, 0.6}}, 0.35], p[dynCylinderId]]
+          Orange, GeometricTransformation[Cuboid[{-0.5, -0.5, -0.5}, {0.5, 0.5, 0.5}], t[dynCuboidId]],
+          Red, GeometricTransformation[Sphere[{0, 0, 0}, 0.5], t[dynSphereId]],
+          Purple, GeometricTransformation[Cylinder[{{0, 0, -0.6}, {0, 0, 0.6}}, 0.35], t[dynCylinderId]],
+
+          Brown, GeometricTransformation[Cone[{{0, 0, -0.5}, {0, 0, 0.5}}, 0.3], t[dynConeId]],
+          Darker@Green, GeometricTransformation[CapsuleShape[{{0, 0, -0.6}, {0, 0, 0.6}}, 0.25], t[dynCapsuleId]]
         },
         PlotRange -> {{-6, 6}, {-6, 6}, {-2, 8}},
         Axes -> True,
