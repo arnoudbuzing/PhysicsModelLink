@@ -1,4 +1,4 @@
-# Rapier
+# PhysicsLink
 
 A Wolfram Language paclet providing high-performance 3D physics simulation bindings to the Rust [rapier3d](https://rapier.rs/) physics engine via `wolfram-library-link`.
 
@@ -23,8 +23,8 @@ Ensure you have Rust/Cargo installed, as well as the Wolfram Engine or Mathemati
 Load the paclet from a local checkout:
 
 ```wl
-PacletDirectoryLoad[FileNameJoin[{NotebookDirectory[], "Rapier"}]];
-Needs["Rapier`"];
+PacletDirectoryLoad[FileNameJoin[{NotebookDirectory[], "PhysicsLink"}]];
+Needs["PhysicsLink`"];
 ```
 
 Create a world with gravity:

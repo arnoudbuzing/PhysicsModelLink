@@ -1,7 +1,7 @@
 projectDir = DirectoryName[$InputFileName, 2];
 
-PacletDirectoryLoad[FileNameJoin[{projectDir, "Rapier"}]];
-Needs["Rapier`"];
+PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsLink"}]];
+Needs["PhysicsLink`"];
 
 worldId = RapierWorldCreate[{0.0, 0.0, -9.81}];
 

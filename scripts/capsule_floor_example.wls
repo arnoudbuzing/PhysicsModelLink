@@ -1,7 +1,7 @@
 (* Capsule + Floor minimal Rapier example *)
 
-PacletDirectoryLoad[FileNameJoin[{DirectoryName[$InputFileName], "..", "Rapier"}]];
-Needs["Rapier`"];
+PacletDirectoryLoad[FileNameJoin[{DirectoryName[$InputFileName], "..", "PhysicsLink"}]];
+Needs["PhysicsLink`"];
 
 rowToTransform[row_] := {QuaternionToTransformation[row[[5 ;; 8]]], row[[2 ;; 4]]};
 handleToTransform[mat_] := Association @ Map[(#[[1]] -> rowToTransform[#]) &, mat];

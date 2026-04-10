@@ -19,7 +19,7 @@ RapierVersion[]
 ### Basic Example
 Check the current version of the Rapier engine:
 ```wolfram
-Needs["Rapier`"]
+Needs["PhysicsLink`"]
 RapierVersion[]
 (* "0.23.0" *)
 ```

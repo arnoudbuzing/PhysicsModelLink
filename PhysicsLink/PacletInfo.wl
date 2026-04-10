@@ -1,7 +1,7 @@
 PacletObject[
   <|
-    "Name" -> "Rapier",
-    "Description" -> "Wolfram Language bindings for the Rust rapier3d crate.",
+    "Name" -> "PhysicsLink",
+    "Description" -> "High-level Wolfram Language physics simulation powered by the Rust rapier3d crate.",
     "Creator" -> "Arnoud Buzing",
     "Version" -> "0.0.1",
     "WolframVersion" -> "14.1+",
@@ -9,7 +9,7 @@ PacletObject[
       {
         "Kernel",
         "Root" -> "Kernel",
-        "Context" -> "Rapier`"
+        "Context" -> "PhysicsLink`"
       },
       {
         "Asset",

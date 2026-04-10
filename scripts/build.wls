@@ -2,7 +2,7 @@
 
 $projectDir = ExpandFileName[DirectoryName[$InputFileName, 2]];
 $rustDir = FileNameJoin[{$projectDir, "rapier-rs"}];
-$pacletDir = FileNameJoin[{$projectDir, "Rapier"}];
+$pacletDir = FileNameJoin[{$projectDir, "PhysicsLink"}];
 $libResourcesDir = FileNameJoin[{$pacletDir, "LibraryResources", $SystemID}];
 
 Print["Project Dir: ", $projectDir];

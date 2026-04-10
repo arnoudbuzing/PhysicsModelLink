@@ -1,14 +1,14 @@
 VerificationTest[
-  PacletDirectoryLoad[FileNameJoin[{DirectoryName[$TestFileName, 2], "Rapier"}]],
+  PacletDirectoryLoad[FileNameJoin[{DirectoryName[$TestFileName, 2], "PhysicsLink"}]],
   {__String},
   SameTest -> MatchQ,
   TestID -> "PacletDirectoryLoad-Bounce"
 ]
 
 VerificationTest[
-  Needs["Rapier`"],
+  Needs["PhysicsLink`"],
   Null,
-  TestID -> "NeedsRapier-Bounce"
+  TestID -> "NeedsPhysicsLink-Bounce"
 ]
 
 VerificationTest[

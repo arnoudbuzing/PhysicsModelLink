@@ -1,18 +1,18 @@
 VerificationTest[
-  PacletDirectoryLoad[FileNameJoin[{DirectoryName[$TestFileName, 2], "Rapier"}]],
+  PacletDirectoryLoad[FileNameJoin[{DirectoryName[$TestFileName, 2], "PhysicsLink"}]],
   {__String},
   SameTest -> MatchQ,
   TestID -> "PacletDirectoryLoad"
 ]
 
 VerificationTest[
-  Needs["Rapier`"],
+  Needs["PhysicsLink`"],
   Null,
-  TestID -> "NeedsRapier"
+  TestID -> "NeedsPhysicsLink"
 ]
 
 VerificationTest[
-  StringQ[Rapier`RapierVersion[]],
+  StringQ[PhysicsLink`RapierVersion[]],
   True,
   TestID -> "RapierVersionCall"
 ]

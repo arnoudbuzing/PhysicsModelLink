@@ -1,7 +1,7 @@
 #!/usr/bin/env wolframscript
 
-PacletDirectoryLoad[FileNameJoin[{DirectoryName[$InputFileName, 2], "Rapier"}]];
-Needs["Rapier`"];
+PacletDirectoryLoad[FileNameJoin[{DirectoryName[$InputFileName, 2], "PhysicsLink"}]];
+Needs["PhysicsLink`"];
 
 Print["--- Rapier Cuboid Simulation ---"];
 
