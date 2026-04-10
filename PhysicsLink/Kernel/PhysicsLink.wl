@@ -22,6 +22,7 @@ DynamicBody::usage = "DynamicBody[primitive, opts] wraps a graphics primitive as
 FixedBody::usage = "FixedBody[primitive, opts] wraps a graphics primitive as a fixed (immovable) rigid body.";
 DestroyPhysicsModel::usage = "DestroyPhysicsModel[model] destroys the underlying Rapier world and frees resources.";
 PhysicsModelVideo::usage = "PhysicsModelVideo[frames] creates an AnimationVideo from a list of PhysicsModelObject frames.";
+PhysicsModelEvolve::usage = "PhysicsModelEvolve[model, frames, dt] evolves the model for the given number of frames at time step dt, returning a list of PhysicsModelObject states.";
 
 Begin["`Private`"];
 
@@ -221,6 +222,20 @@ extractPrimitiveInfo[CapsuleShape[{p1:{_?NumericQ, _?NumericQ, _?NumericQ}, p2:{
   ];
 
 (* --- createBody: register a single body+collider from a DynamicBody/FixedBody wrapper --- *)
+(* Extract graphics directives from a list like {Red, Opacity[.5], Cuboid[...]} *)
+separateDirectivesAndPrimitive[prim_List] :=
+  Module[{directives, primitives},
+    directives = Select[prim, !MatchQ[#, _Sphere | _Cuboid | _Cylinder | _Cone | _CapsuleShape] &];
+    primitives = Select[prim, MatchQ[#, _Sphere | _Cuboid | _Cylinder | _Cone | _CapsuleShape] &];
+    If[Length[primitives] =!= 1,
+      Print["Expected exactly one graphics primitive, found: ", Length[primitives]];
+      Return[$Failed]
+    ];
+    {directives, primitives[[1]]}
+  ];
+
+separateDirectivesAndPrimitive[prim_] := {{}, prim};
+
 createBody[worldId_Integer, DynamicBody[prim_, opts___]] :=
   iCreateBody[worldId, prim, "Dynamic", {opts}];
 
@@ -228,9 +243,13 @@ createBody[worldId_Integer, FixedBody[prim_, opts___]] :=
   iCreateBody[worldId, prim, "Fixed", {opts}];
 
 iCreateBody[worldId_Integer, prim_, bodyType_String, opts_List] :=
-  Module[{info, center, shapeParams, intrinsicRot, userRot, combinedRot, quat,
+  Module[{separated, directives, actualPrim, info, center, shapeParams, intrinsicRot, userRot, combinedRot, quat,
           density, handle, colliderHandle, shapeType},
-    info = extractPrimitiveInfo[prim];
+    separated = separateDirectivesAndPrimitive[prim];
+    If[separated === $Failed, Return[$Failed]];
+    {directives, actualPrim} = separated;
+
+    info = extractPrimitiveInfo[actualPrim];
     If[!ListQ[info],
       Print["Unsupported primitive: ", Head[prim]];
       Return[$Failed]
@@ -270,17 +289,19 @@ iCreateBody[worldId_Integer, prim_, bodyType_String, opts_List] :=
       "ShapeType" -> shapeType,
       "ShapeParams" -> Rest[shapeParams],
       "IntrinsicRotation" -> intrinsicRot,
+      "Directives" -> directives,
       "Position" -> center,
       "Quaternion" -> quat
     |>
   ];
 
 (* --- CreatePhysicsModel --- *)
-Options[CreatePhysicsModel] = {"Gravity" -> {0, 0, -9.81}};
+Options[CreatePhysicsModel] = {"Gravity" -> {0, 0, -9.81}, "Graphics3DOptions" -> {}};
 
 CreatePhysicsModel[bodies_List, opts:OptionsPattern[]] :=
-  Module[{gravity, worldId, bodyData},
+  Module[{gravity, worldId, bodyData, g3dOpts},
     gravity = N[OptionValue["Gravity"]];
+    g3dOpts = OptionValue["Graphics3DOptions"];
     worldId = RapierWorldCreate[gravity];
 
     bodyData = Table[
@@ -293,6 +314,7 @@ CreatePhysicsModel[bodies_List, opts:OptionsPattern[]] :=
         "WorldID" -> worldId,
         "Bodies" -> bodyData,
         "Time" -> 0.0,
+        "Graphics3DOptions" -> g3dOpts,
         "Icon" -> None
       |>];
       icon = Quiet @ Rasterize[PhysicsModelPlot[model, Axes -> False], "Image", ImageSize -> 80];
@@ -367,6 +389,7 @@ PhysicsModelIterate[PhysicsModelObject[assoc_Association], steps_Integer, dt_?Nu
       "WorldID" -> worldId,
       "Bodies" -> updatedBodies,
       "Time" -> assoc["Time"] + steps * N[dt],
+      "Graphics3DOptions" -> Lookup[assoc, "Graphics3DOptions", {}],
       "Icon" -> assoc["Icon"]
     |>]
   ];
@@ -412,24 +435,29 @@ $defaultColors = {
 Options[PhysicsModelPlot] = {PlotRange -> Automatic, Axes -> True, Boxed -> True};
 
 PhysicsModelPlot[PhysicsModelObject[assoc_Association], opts:OptionsPattern[]] :=
-  Module[{bodies, primitives, nColors, passOpts},
+  Module[{bodies, primitives, nColors, passOpts, storedOpts},
     bodies = assoc["Bodies"];
     nColors = Length[$defaultColors];
+    storedOpts = Lookup[assoc, "Graphics3DOptions", {}];
 
     primitives = MapIndexed[
-      Module[{body = #1, idx = #2[[1]], prim, rotMat, pos, color, transform},
+      Module[{body = #1, idx = #2[[1]], prim, rotMat, pos, directives, defaultColor, transform},
         prim = bodyToGraphics[body];
         rotMat = QuaternionToTransformation[body["Quaternion"]];
         pos = body["Position"];
         transform = {rotMat, pos};
 
-        (* Fixed bodies get gray, dynamic bodies get cycling colors *)
-        color = If[body["BodyType"] === "Fixed",
-          GrayLevel[0.7],
-          $defaultColors[[Mod[idx - 1, nColors] + 1]]
+        directives = body["Directives"];
+        (* If no user directives, use default coloring *)
+        If[directives === {} || !ListQ[directives],
+          defaultColor = If[body["BodyType"] === "Fixed",
+            GrayLevel[0.7],
+            $defaultColors[[Mod[idx - 1, nColors] + 1]]
+          ];
+          directives = {defaultColor}
         ];
 
-        {color, GeometricTransformation[prim, transform]}
+        {Sequence @@ directives, GeometricTransformation[prim, transform]}
       ] &,
       bodies
     ];
@@ -442,13 +470,25 @@ PhysicsModelPlot[PhysicsModelObject[assoc_Association], opts:OptionsPattern[]] :
       Axes -> OptionValue[Axes],
       Boxed -> OptionValue[Boxed],
       Lighting -> "Neutral",
-      Sequence @@ passOpts
+      Sequence @@ passOpts,
+      Sequence @@ storedOpts
     ]
   ];
 
 (* --- DestroyPhysicsModel --- *)
 DestroyPhysicsModel[PhysicsModelObject[assoc_Association]] :=
   RapierWorldDestroy[assoc["WorldID"]];
+
+(* --- PhysicsModelEvolve --- *)
+PhysicsModelEvolve[model_PhysicsModelObject, frames_Integer, dt_?NumericQ] :=
+  Module[{current = model, result},
+    result = Table[
+      current = PhysicsModelIterate[current, 1, N[dt]];
+      current,
+      {frames}
+    ];
+    result
+  ];
 
 (* --- PhysicsModelVideo --- *)
 Options[PhysicsModelVideo] = {PlotRange -> {{-4.1, 4.1}, {-4.1, 4.1}, {-1.1, 5.1}}};
