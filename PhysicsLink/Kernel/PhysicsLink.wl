@@ -21,6 +21,7 @@ PhysicsModelObject::usage = "PhysicsModelObject[assoc] represents the state of a
 DynamicBody::usage = "DynamicBody[primitive, opts] wraps a graphics primitive as a dynamic (gravity-affected) rigid body.";
 FixedBody::usage = "FixedBody[primitive, opts] wraps a graphics primitive as a fixed (immovable) rigid body.";
 DestroyPhysicsModel::usage = "DestroyPhysicsModel[model] destroys the underlying Rapier world and frees resources.";
+PhysicsModelVideo::usage = "PhysicsModelVideo[frames] creates an AnimationVideo from a list of PhysicsModelObject frames.";
 
 Begin["`Private`"];
 
@@ -448,6 +449,18 @@ PhysicsModelPlot[PhysicsModelObject[assoc_Association], opts:OptionsPattern[]] :
 (* --- DestroyPhysicsModel --- *)
 DestroyPhysicsModel[PhysicsModelObject[assoc_Association]] :=
   RapierWorldDestroy[assoc["WorldID"]];
+
+(* --- PhysicsModelVideo --- *)
+Options[PhysicsModelVideo] = {PlotRange -> {{-4.1, 4.1}, {-4.1, 4.1}, {-1.1, 5.1}}};
+
+PhysicsModelVideo[frames_List, opts:OptionsPattern[]] :=
+  Module[{plotOpts},
+    plotOpts = FilterRules[{opts, Options[PhysicsModelVideo]}, Options[PhysicsModelPlot]];
+    AnimationVideo[
+      PhysicsModelPlot[frame, Sequence @@ plotOpts],
+      {frame, frames}
+    ]
+  ];
 
 End[];
 EndPackage[];
