@@ -93,6 +93,48 @@
     text-decoration: underline;
   }
 
+  .card {
+    cursor: pointer;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.92);
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lightbox.active {
+    display: flex;
+  }
+
+  .lightbox video {
+    max-width: 95vw;
+    max-height: 90vh;
+    border-radius: 8px;
+    outline: none;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    font-size: 2rem;
+    color: #8b949e;
+    background: none;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+  }
+
+  .lightbox-close:hover {
+    color: #e6edf3;
+  }
+
   @media (max-width: 480px) {
     .gallery {
       grid-template-columns: 1fr;
@@ -106,13 +148,13 @@
 
 <header>
   <h1>PhysicsLink</h1>
-  <p>High-performance 3D physics simulation for the Wolfram Language, powered by the Rust rapier3d engine.</p>
+  <p>High-performance 3D physics simulation for the <a href="https://www.wolfram.com/language/" style="color:#58a6ff;text-decoration:none">Wolfram Language</a>.</p>
 </header>
 
 <main class="gallery">
 
   <div class="card">
-    <video autoplay muted loop playsinline>
+    <video muted loop playsinline preload="metadata">
       <source src="videos/bouncing_ball.mp4" type="video/mp4">
     </video>
     <div class="card-body">
@@ -122,7 +164,7 @@
   </div>
 
   <div class="card">
-    <video autoplay muted loop playsinline>
+    <video muted loop playsinline preload="metadata">
       <source src="videos/mixed_shapes.mp4" type="video/mp4">
     </video>
     <div class="card-body">
@@ -132,7 +174,7 @@
   </div>
 
   <div class="card">
-    <video autoplay muted loop playsinline>
+    <video muted loop playsinline preload="metadata">
       <source src="videos/boundary_box.mp4" type="video/mp4">
     </video>
     <div class="card-body">
@@ -142,7 +184,7 @@
   </div>
 
   <div class="card">
-    <video autoplay muted loop playsinline>
+    <video muted loop playsinline preload="metadata">
       <source src="videos/sphere_stack.mp4" type="video/mp4">
     </video>
     <div class="card-body">
@@ -152,7 +194,7 @@
   </div>
 
   <div class="card">
-    <video autoplay muted loop playsinline>
+    <video muted loop playsinline preload="metadata">
       <source src="videos/capsule_drop.mp4" type="video/mp4">
     </video>
     <div class="card-body">
@@ -162,7 +204,7 @@
   </div>
 
   <div class="card">
-    <video autoplay muted loop playsinline>
+    <video muted loop playsinline preload="metadata">
       <source src="videos/domino_line.mp4" type="video/mp4">
     </video>
     <div class="card-body">
@@ -172,7 +214,7 @@
   </div>
 
   <div class="card">
-    <video autoplay muted loop playsinline>
+    <video muted loop playsinline preload="metadata">
       <source src="videos/cylinder_rain.mp4" type="video/mp4">
     </video>
     <div class="card-body">
@@ -182,7 +224,7 @@
   </div>
 
   <div class="card">
-    <video autoplay muted loop playsinline>
+    <video muted loop playsinline preload="metadata">
       <source src="videos/pyramid_collapse.mp4" type="video/mp4">
     </video>
     <div class="card-body">
@@ -192,7 +234,7 @@
   </div>
 
   <div class="card">
-    <video autoplay muted loop playsinline>
+    <video muted loop playsinline preload="metadata">
       <source src="videos/funnel.mp4" type="video/mp4">
     </video>
     <div class="card-body">
@@ -206,6 +248,59 @@
 <footer>
   Built with <a href="https://github.com/arnoudb/PhysicsLink">PhysicsLink</a>
 </footer>
+
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Close">&times;</button>
+  <video muted loop playsinline id="lightbox-video"></video>
+</div>
+
+<script>
+(function() {
+  // Hover play/pause for card videos
+  document.querySelectorAll('.card').forEach(function(card) {
+    var video = card.querySelector('video');
+    card.addEventListener('mouseenter', function() {
+      video.currentTime = 0;
+      video.play();
+    });
+    card.addEventListener('mouseleave', function() {
+      video.pause();
+    });
+  });
+
+  // Lightbox
+  var lightbox = document.getElementById('lightbox');
+  var lbVideo = document.getElementById('lightbox-video');
+  var lbClose = document.getElementById('lightbox-close');
+
+  document.querySelectorAll('.card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      var source = card.querySelector('video source');
+      if (!source) return;
+      lbVideo.src = source.getAttribute('src');
+      lbVideo.currentTime = 0;
+      lightbox.classList.add('active');
+      lbVideo.play();
+      // Pause the card video
+      card.querySelector('video').pause();
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lbVideo.pause();
+    lbVideo.removeAttribute('src');
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lightbox.addEventListener('click', function(e) {
+    if (e.target === lightbox) closeLightbox();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('active')) closeLightbox();
+  });
+})();
+</script>
 
 </body>
 </html>

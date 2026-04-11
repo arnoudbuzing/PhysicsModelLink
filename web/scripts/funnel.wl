@@ -24,7 +24,7 @@ objects = {
   DynamicBody[{MaterialShading["Copper"], Sphere[{0, 0.5, 5.3}, 0.25]}],
   DynamicBody[{MaterialShading["Silver"], Sphere[{1, -0.3, 4.8}, 0.35]}],
   DynamicBody[{MaterialShading["Brass"], Sphere[{0.5, 0, 5.6}, 0.2]}],
-  DynamicBody[{MaterialShading["Chrome"],
+  DynamicBody[{MaterialShading["Bronze"],
     Cuboid[{-0.5, -0.2, 4.5}, {0.1, 0.4, 5.1}]},
     "Orientation" -> RotationMatrix[Pi/5, {1, 1, 0}]],
   DynamicBody[{MaterialShading["Gold"],

@@ -7,29 +7,35 @@ Needs["PhysicsLink`"];
 Print["Generating pyramid collapse video..."];
 
 (* Build a 4-layer pyramid of cuboids *)
-blockSize = 0.45;
+(* Each block is 0.8 x 0.8 x 0.4 — wide and flat like bricks *)
+bw = 0.8;  (* block width/depth *)
+bh = 0.4;  (* block height *)
 layers = {};
 Do[
+  n = 4 - layer;  (* number of blocks per side: 4, 3, 2, 1 *)
+  offset = (n - 1) * bw / 2;  (* center the row *)
+  zlo = layer * bh;
+  zhi = (layer + 1) * bh;
   Do[
     Do[
+      cx = col * bw - offset;
+      cy = row * bw - offset;
       AppendTo[layers,
         DynamicBody[{MaterialShading["Brass"],
-          Cuboid[
-            {col - blockSize/2, row - blockSize/2, layer*blockSize*2},
-            {col + blockSize/2, row + blockSize/2, (layer + 1)*blockSize*2}
-          ]}]
+          Cuboid[{cx - bw/2, cy - bw/2, zlo}, {cx + bw/2, cy + bw/2, zhi}]}]
       ],
-      {col, -blockSize*(3 - layer), blockSize*(3 - layer), blockSize*2}
+      {col, 0, n - 1}
     ],
-    {row, -blockSize*(3 - layer), blockSize*(3 - layer), blockSize*2}
+    {row, 0, n - 1}
   ],
   {layer, 0, 3}
 ];
 
-(* Wrecking sphere *)
-wrecker = DynamicBody[{MaterialShading["Chrome"],
-  Sphere[{-3.5, 0, 1.5}, 0.6]},
-  "Density" -> 8.0];
+(* Wrecking sphere — centered above the pyramid, falling down *)
+wrecker = DynamicBody[{MaterialShading["Bronze"],
+  Sphere[{0, 0, 4.5}, 0.6]},
+  "Density" -> 8.0,
+  "Velocity" -> {0, 0, -8}];
 
 model = CreatePhysicsModel[{
   PhysicsBoundaryBox[{{-4, -4, 0}, {4, 4, 6}}, "Thickness" -> 1],

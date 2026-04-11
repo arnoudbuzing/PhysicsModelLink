@@ -242,17 +242,10 @@ separateDirectivesAndPrimitive[prim_List] :=
 
 separateDirectivesAndPrimitive[prim_] := {{}, prim};
 
-(* Multiple bare arguments: wrap into a list so directives get separated properly *)
-createBody[worldId_Integer, DynamicBody[args__, opts:OptionsPattern[]]] :=
-  iCreateBody[worldId, {args}, "Dynamic", {opts}] /; !MatchQ[{args}, {_List | _Sphere | _Cuboid | _Cylinder | _Cone | _CapsuleShape}] && FreeQ[{args}, _Rule | _RuleDelayed];
-
-createBody[worldId_Integer, FixedBody[args__, opts:OptionsPattern[]]] :=
-  iCreateBody[worldId, {args}, "Fixed", {opts}] /; !MatchQ[{args}, {_List | _Sphere | _Cuboid | _Cylinder | _Cone | _CapsuleShape}] && FreeQ[{args}, _Rule | _RuleDelayed];
-
-createBody[worldId_Integer, DynamicBody[prim_, opts___]] :=
+createBody[worldId_Integer, DynamicBody[prim_List, opts___]] :=
   iCreateBody[worldId, prim, "Dynamic", {opts}];
 
-createBody[worldId_Integer, FixedBody[prim_, opts___]] :=
+createBody[worldId_Integer, FixedBody[prim_List, opts___]] :=
   iCreateBody[worldId, prim, "Fixed", {opts}];
 
 iCreateBody[worldId_Integer, prim_, bodyType_String, opts_List] :=

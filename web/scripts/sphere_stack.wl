@@ -14,7 +14,7 @@ model = CreatePhysicsModel[{
   DynamicBody[{MaterialShading["Copper"], Sphere[{0, 0, 2.8}, 0.7]}],
   DynamicBody[{MaterialShading["Silver"], Sphere[{0, 0, 4.0}, 0.5]}],
   DynamicBody[{MaterialShading["Brass"], Sphere[{0.1, 0.1, 5.0}, 0.35]}],
-  DynamicBody[{MaterialShading["Chrome"], Sphere[{-0.05, 0.05, 5.6}, 0.25]}]
+  DynamicBody[{MaterialShading["Bronze"], Sphere[{-0.05, 0.05, 5.6}, 0.25]}]
 },
   "Gravity" -> {0, 0, -9.81},
   "Graphics3DOptions" -> {Background -> Black, Axes -> False,
