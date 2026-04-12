@@ -62,11 +62,11 @@ If[$physicsLinkLib =!= $Failed,
   $iRapierWorldCreate = LibraryFunctionLoad[$physicsLinkLib, "rapier_world_create", {Real, Real, Real}, Integer];
   $iRapierWorldDestroy = LibraryFunctionLoad[$physicsLinkLib, "rapier_world_destroy", {Integer}, "Boolean"];
   $iRapierAddRigidBody = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_rigid_body", {Integer, Real, Real, Real, Real, Real, Real, Real, Integer}, Integer];
-  $iRapierAddColliderCuboid = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_cuboid", {Integer, Integer, Real, Real, Real, Real}, Integer];
-  $iRapierAddColliderSphere = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_sphere", {Integer, Integer, Real, Real}, Integer];
-  $iRapierAddColliderCylinder = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_cylinder", {Integer, Integer, Real, Real, Real}, Integer];
-  $iRapierAddColliderCone = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_cone", {Integer, Integer, Real, Real, Real}, Integer];
-  $iRapierAddColliderCapsule = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_capsule", {Integer, Integer, Real, Real, Real}, Integer];
+  $iRapierAddColliderCuboid = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_cuboid", {Integer, Integer, Real, Real, Real, Real, Real, Real}, Integer];
+  $iRapierAddColliderSphere = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_sphere", {Integer, Integer, Real, Real, Real, Real}, Integer];
+  $iRapierAddColliderCylinder = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_cylinder", {Integer, Integer, Real, Real, Real, Real, Real}, Integer];
+  $iRapierAddColliderCone = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_cone", {Integer, Integer, Real, Real, Real, Real, Real}, Integer];
+  $iRapierAddColliderCapsule = LibraryFunctionLoad[$physicsLinkLib, "rapier_add_collider_capsule", {Integer, Integer, Real, Real, Real, Real, Real}, Integer];
   $iRapierWorldStep = LibraryFunctionLoad[$physicsLinkLib, "rapier_world_step", {Integer, Integer, Real}, "Void"];
   $iRapierGetBodyPositions = LibraryFunctionLoad[$physicsLinkLib, "rapier_get_body_positions", {Integer}, {Real, 1}];
   $iRapierGetBodyHandles = LibraryFunctionLoad[$physicsLinkLib, "rapier_get_body_handles", {Integer}, {Integer, 1}];
@@ -89,20 +89,37 @@ If[$physicsLinkLib =!= $Failed,
   RapierAddRigidBody[worldId_Integer, {x_?NumericQ, y_?NumericQ, z_?NumericQ}, type_String] :=
     RapierAddRigidBody[worldId, {x, y, z}, {0.0, 0.0, 0.0, 1.0}, type];
 
-  RapierAddColliderCuboid[worldId_Integer, bodyId_Integer, {hx_?NumericQ, hy_?NumericQ, hz_?NumericQ}, density_?NumericQ] :=
-    $iRapierAddColliderCuboid[worldId, bodyId, hx, hy, hz, density];
+  (* Full signatures with restitution and friction *)
+  RapierAddColliderCuboid[worldId_Integer, bodyId_Integer, {hx_?NumericQ, hy_?NumericQ, hz_?NumericQ}, density_?NumericQ, restitution_?NumericQ, friction_?NumericQ] :=
+    $iRapierAddColliderCuboid[worldId, bodyId, hx, hy, hz, density, restitution, friction];
+
+  RapierAddColliderSphere[worldId_Integer, bodyId_Integer, radius_?NumericQ, density_?NumericQ, restitution_?NumericQ, friction_?NumericQ] :=
+    $iRapierAddColliderSphere[worldId, bodyId, radius, density, restitution, friction];
+
+  RapierAddColliderCylinder[worldId_Integer, bodyId_Integer, {halfHeight_?NumericQ, radius_?NumericQ}, density_?NumericQ, restitution_?NumericQ, friction_?NumericQ] :=
+    $iRapierAddColliderCylinder[worldId, bodyId, halfHeight, radius, density, restitution, friction];
+
+  RapierAddColliderCone[worldId_Integer, bodyId_Integer, {halfHeight_?NumericQ, radius_?NumericQ}, density_?NumericQ, restitution_?NumericQ, friction_?NumericQ] :=
+    $iRapierAddColliderCone[worldId, bodyId, halfHeight, radius, density, restitution, friction];
+
+  RapierAddColliderCapsule[worldId_Integer, bodyId_Integer, {halfHeight_?NumericQ, radius_?NumericQ}, density_?NumericQ, restitution_?NumericQ, friction_?NumericQ] :=
+    $iRapierAddColliderCapsule[worldId, bodyId, halfHeight, radius, density, restitution, friction];
+
+  (* Backward-compatible overloads: default restitution=0.5, friction=0.5 *)
+  RapierAddColliderCuboid[worldId_Integer, bodyId_Integer, dims:{_?NumericQ, _?NumericQ, _?NumericQ}, density_?NumericQ] :=
+    RapierAddColliderCuboid[worldId, bodyId, dims, density, 0.5, 0.5];
 
   RapierAddColliderSphere[worldId_Integer, bodyId_Integer, radius_?NumericQ, density_?NumericQ] :=
-    $iRapierAddColliderSphere[worldId, bodyId, radius, density];
+    RapierAddColliderSphere[worldId, bodyId, radius, density, 0.5, 0.5];
 
-  RapierAddColliderCylinder[worldId_Integer, bodyId_Integer, {halfHeight_?NumericQ, radius_?NumericQ}, density_?NumericQ] :=
-    $iRapierAddColliderCylinder[worldId, bodyId, halfHeight, radius, density];
+  RapierAddColliderCylinder[worldId_Integer, bodyId_Integer, dims:{_?NumericQ, _?NumericQ}, density_?NumericQ] :=
+    RapierAddColliderCylinder[worldId, bodyId, dims, density, 0.5, 0.5];
 
-  RapierAddColliderCone[worldId_Integer, bodyId_Integer, {halfHeight_?NumericQ, radius_?NumericQ}, density_?NumericQ] :=
-    $iRapierAddColliderCone[worldId, bodyId, halfHeight, radius, density];
+  RapierAddColliderCone[worldId_Integer, bodyId_Integer, dims:{_?NumericQ, _?NumericQ}, density_?NumericQ] :=
+    RapierAddColliderCone[worldId, bodyId, dims, density, 0.5, 0.5];
 
-  RapierAddColliderCapsule[worldId_Integer, bodyId_Integer, {halfHeight_?NumericQ, radius_?NumericQ}, density_?NumericQ] :=
-    $iRapierAddColliderCapsule[worldId, bodyId, halfHeight, radius, density];
+  RapierAddColliderCapsule[worldId_Integer, bodyId_Integer, dims:{_?NumericQ, _?NumericQ}, density_?NumericQ] :=
+    RapierAddColliderCapsule[worldId, bodyId, dims, density, 0.5, 0.5];
 
   RapierWorldStep[worldId_Integer, steps_Integer, dt_?NumericQ] := 
     $iRapierWorldStep[worldId, steps, dt];
@@ -250,7 +267,7 @@ createBody[worldId_Integer, FixedBody[prim_List, opts___]] :=
 
 iCreateBody[worldId_Integer, prim_, bodyType_String, opts_List] :=
   Module[{separated, directives, actualPrim, info, center, shapeParams, intrinsicRot, userRot, combinedRot, quat,
-          density, velocity, handle, colliderHandle, shapeType},
+          density, restitution, friction, velocity, handle, colliderHandle, shapeType},
     separated = separateDirectivesAndPrimitive[prim];
     If[separated === $Failed, Return[$Failed]];
     {directives, actualPrim} = separated;
@@ -265,6 +282,8 @@ iCreateBody[worldId_Integer, prim_, bodyType_String, opts_List] :=
 
     (* Get user options *)
     density = N["Density" /. opts /. {"Density" -> 1.0}];
+    restitution = N["Restitution" /. opts /. {"Restitution" -> 0.5}];
+    friction = N["Friction" /. opts /. {"Friction" -> 0.5}];
     userRot = "Orientation" /. opts /. {"Orientation" -> IdentityMatrix[3]};
     userRot = N[userRot];
     velocity = "Velocity" /. opts /. {"Velocity" -> None};
@@ -284,15 +303,15 @@ iCreateBody[worldId_Integer, prim_, bodyType_String, opts_List] :=
     (* Add collider based on shape type *)
     colliderHandle = Switch[shapeType,
       "Sphere",
-        RapierAddColliderSphere[worldId, handle, shapeParams[[2]], density],
+        RapierAddColliderSphere[worldId, handle, shapeParams[[2]], density, restitution, friction],
       "Cuboid",
-        RapierAddColliderCuboid[worldId, handle, shapeParams[[2]], density],
+        RapierAddColliderCuboid[worldId, handle, shapeParams[[2]], density, restitution, friction],
       "Cylinder",
-        RapierAddColliderCylinder[worldId, handle, {shapeParams[[2]], shapeParams[[3]]}, density],
+        RapierAddColliderCylinder[worldId, handle, {shapeParams[[2]], shapeParams[[3]]}, density, restitution, friction],
       "Cone",
-        RapierAddColliderCone[worldId, handle, {shapeParams[[2]], shapeParams[[3]]}, density],
+        RapierAddColliderCone[worldId, handle, {shapeParams[[2]], shapeParams[[3]]}, density, restitution, friction],
       "Capsule",
-        RapierAddColliderCapsule[worldId, handle, {shapeParams[[2]], shapeParams[[3]]}, density]
+        RapierAddColliderCapsule[worldId, handle, {shapeParams[[2]], shapeParams[[3]]}, density, restitution, friction]
     ];
 
     <|

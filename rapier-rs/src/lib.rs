@@ -140,14 +140,17 @@ fn rapier_add_collider_cuboid(
     world_id: i64,
     body_handle_raw: i64,
     hx: f64, hy: f64, hz: f64,
-    density: f64
+    density: f64,
+    restitution: f64,
+    friction: f64
 ) -> i64 {
     WORLDS.with(|w| {
         let mut worlds = w.borrow_mut();
         if let Some(world) = worlds.get_mut(&(world_id as usize)) {
             let collider = ColliderBuilder::cuboid(hx as f32, hy as f32, hz as f32)
                 .density(density as f32)
-                .restitution(0.8)
+                .restitution(restitution as f32)
+                .friction(friction as f32)
                 .build();
             
             let handle = if body_handle_raw == -1 {
@@ -172,14 +175,17 @@ fn rapier_add_collider_sphere(
     world_id: i64,
     body_handle_raw: i64,
     radius: f64,
-    density: f64
+    density: f64,
+    restitution: f64,
+    friction: f64
 ) -> i64 {
     WORLDS.with(|w| {
         let mut worlds = w.borrow_mut();
         if let Some(world) = worlds.get_mut(&(world_id as usize)) {
             let collider = ColliderBuilder::ball(radius as f32)
                 .density(density as f32)
-                .restitution(0.8)
+                .restitution(restitution as f32)
+                .friction(friction as f32)
                 .build();
                 
             let handle = if body_handle_raw == -1 {
@@ -205,14 +211,17 @@ fn rapier_add_collider_cylinder(
     body_handle_raw: i64,
     half_height: f64,
     radius: f64,
-    density: f64
+    density: f64,
+    restitution: f64,
+    friction: f64
 ) -> i64 {
     WORLDS.with(|w| {
         let mut worlds = w.borrow_mut();
         if let Some(world) = worlds.get_mut(&(world_id as usize)) {
             let collider = ColliderBuilder::cylinder(half_height as f32, radius as f32)
                 .density(density as f32)
-                .restitution(0.8)
+                .restitution(restitution as f32)
+                .friction(friction as f32)
                 .build();
 
             let handle = if body_handle_raw == -1 {
@@ -238,14 +247,17 @@ fn rapier_add_collider_cone(
     body_handle_raw: i64,
     half_height: f64,
     radius: f64,
-    density: f64
+    density: f64,
+    restitution: f64,
+    friction: f64
 ) -> i64 {
     WORLDS.with(|w| {
         let mut worlds = w.borrow_mut();
         if let Some(world) = worlds.get_mut(&(world_id as usize)) {
             let collider = ColliderBuilder::cone(half_height as f32, radius as f32)
                 .density(density as f32)
-                .restitution(0.8)
+                .restitution(restitution as f32)
+                .friction(friction as f32)
                 .build();
 
             let handle = if body_handle_raw == -1 {
@@ -271,14 +283,17 @@ fn rapier_add_collider_capsule(
     body_handle_raw: i64,
     half_height: f64,
     radius: f64,
-    density: f64
+    density: f64,
+    restitution: f64,
+    friction: f64
 ) -> i64 {
     WORLDS.with(|w| {
         let mut worlds = w.borrow_mut();
         if let Some(world) = worlds.get_mut(&(world_id as usize)) {
             let collider = ColliderBuilder::capsule_y(half_height as f32, radius as f32)
                 .density(density as f32)
-                .restitution(0.8)
+                .restitution(restitution as f32)
+                .friction(friction as f32)
                 .build();
 
             let handle = if body_handle_raw == -1 {
