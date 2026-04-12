@@ -3,11 +3,11 @@
 PacletObject[
   <|
     "Name" -> "ArnoudBuzing/PhysicsModelLink",
-    "Description" -> "High-level Wolfram Language physics simulation powered by the Rust rapier3d crate.",
+    "Description" -> "High-level Wolfram Language physics modeling",
     "Creator" -> "Arnoud Buzing",
     "License" -> "MIT",
     "PublisherID" -> "ArnoudBuzing",
-    "Version" -> "0.0.1",
+    "Version" -> "1.0.0",
     "WolframVersion" -> "14.1+",
     "PrimaryContext" -> "ArnoudBuzing`PhysicsModelLink`",
     "Extensions" -> {

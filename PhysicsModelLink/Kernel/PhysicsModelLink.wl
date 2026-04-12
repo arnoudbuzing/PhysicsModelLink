@@ -13,6 +13,10 @@ PhysicsModelVideo::usage = "PhysicsModelVideo[frames] creates an AnimationVideo 
 PhysicsModelEvolve::usage = "PhysicsModelEvolve[model, frames, dt] evolves the model for the given number of frames at time step dt, returning a list of PhysicsModelObject states.";
 PhysicsBoundaryBox::usage = "PhysicsBoundaryBox[{{xmin,ymin,zmin},{xmax,ymax,zmax}}] returns a list of FixedBody walls enclosing the given region. Use inside CreatePhysicsModel.";
 
+CreatePhysicsModel::libnotfound = "Rapier library not found at `1`.";
+CreatePhysicsModel::badprim = "Expected exactly one graphics primitive, found `1`.";
+CreatePhysicsModel::unsupported = "Unsupported primitive `1`.";
+
 Begin["`Private`"];
 
 QuaternionToTransformation[{qx_?NumericQ, qy_?NumericQ, qz_?NumericQ, qw_?NumericQ}] := {
@@ -124,7 +128,7 @@ If[$physicsLinkLib =!= $Failed,
     ];
 
 ,
-  Print["Warning: Rapier library not found at: ", physicsLinkLibraryPath[]];
+  Message[CreatePhysicsModel::libnotfound, physicsLinkLibraryPath[]];
 ];
 
 (* =====================================================
@@ -238,7 +242,7 @@ separateDirectivesAndPrimitive[prim_List] :=
     directives = Select[prim, !MatchQ[#, _Sphere | _Cuboid | _Cylinder | _Cone | _CapsuleShape] &];
     primitives = Select[prim, MatchQ[#, _Sphere | _Cuboid | _Cylinder | _Cone | _CapsuleShape] &];
     If[Length[primitives] =!= 1,
-      Print["Expected exactly one graphics primitive, found: ", Length[primitives]];
+      Message[CreatePhysicsModel::badprim, Length[primitives]];
       Return[$Failed]
     ];
     {directives, primitives[[1]]}
@@ -261,7 +265,7 @@ iCreateBody[worldId_Integer, prim_, bodyType_String, opts_List] :=
 
     info = extractPrimitiveInfo[actualPrim];
     If[!ListQ[info],
-      Print["Unsupported primitive: ", Head[prim]];
+      Message[CreatePhysicsModel::unsupported, Head[actualPrim]];
       Return[$Failed]
     ];
     {center, shapeParams, intrinsicRot} = info;
