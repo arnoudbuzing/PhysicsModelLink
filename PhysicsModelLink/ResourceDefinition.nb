@@ -7,10 +7,14 @@ Cell["ArnoudBuzing/PhysicsModelLink", "Title",
  CellTags->{"Name", "TemplateCell", "Title"},
  CellID->2082819408,ExpressionUUID->"4bdf414a-ed92-4d09-94d0-77fab7e58dfc"],
 
-Cell["High-level Wolfram Language physics modeling", "Text",
+Cell["\<\
+Rigid body physics simulation and visualization for standard Wolfram Language \
+3D primitives\
+\>", "Text",
  Deletable->False,
  TaggingRules->{},
- CellChangeTimes->{{3.985006535495088*^9, 3.985006548808255*^9}},
+ CellChangeTimes->{{3.985006535495088*^9, 3.985006548808255*^9}, 
+   3.985006904494052*^9},
  CellTags->{"Description", "TemplateCell"},
  CellID->1962344156,ExpressionUUID->"d0e8ff18-187b-456f-b697-44bb26188ec3"],
 
@@ -26,10 +30,7 @@ Cell["Paclet Manifest", "Section",
 Cell[BoxData[
  TemplateBox[{},
   "PacletDirectoryChooserTemplate"]], "PacletDirectoryChooser",
- TaggingRules->{
-  "PacletDirectoryType" -> "Custom", "PacletDirectory" -> 
-   "/Users/arnoudb/github/PhysicsModelLink/PhysicsModelLink", "Refreshing" -> 
-   False},
+ TaggingRules->{"PacletDirectoryType" -> "Notebook", "Refreshing" -> False},
  CellTags->"PacletManifestPanel",
  CellID->420333983,ExpressionUUID->"1e18badf-1a0b-4df5-99a3-e4f085ace56a"],
 
@@ -39,7 +40,7 @@ Cell["", "FileManagerTopSpacer",
  CellGroupingRules->{"SectionGrouping", 99},
  TaggingRules->{},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1382745932,ExpressionUUID->"88a0f9fb-44b3-484a-85c3-753d461ecde4"],
+ CellID->1382745932,ExpressionUUID->"8c1f1915-6928-43c0-84a2-1a87ceed07f3"],
 
 Cell[TextData[Cell[BoxData[
  InterpretationBox[
@@ -62,7 +63,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Documentation"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"3fe10fb5-567a-4a8a-9cb7-884827cec190"]], \
+   "Text"}]],ExpressionUUID->"c5a48592-55e3-4651-a6e5-81427560e098"]], \
 "FileManagerDirectory",
  CellMargins->{{Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 100},
@@ -73,7 +74,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerDocumentationIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1890334937,ExpressionUUID->"a0cbf83a-c095-432c-9101-ddd8edcd4f8d"],
+ CellID->1890334937,ExpressionUUID->"0a873a79-2eb6-4bb9-bcea-c437880369e1"],
 
 Cell[CellGroupData[{
 
@@ -98,7 +99,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "Kernel"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"c7798bfc-0196-4ccc-9cad-ba84d3b10ac9"]], \
+   "Text"}]],ExpressionUUID->"ebf07cb0-ed22-48c9-81c0-96bbf95cb7f9"]], \
 "FileManagerDirectory",
  CellMargins->{{Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 100},
@@ -109,7 +110,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerKernelIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->986212441,ExpressionUUID->"f85f5034-a928-4259-a740-694f01d3b9c4"],
+ CellID->986212441,ExpressionUUID->"7997a2a3-9eb2-48f6-b718-baf216bd2d47"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -133,7 +134,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerWLIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->993708341,ExpressionUUID->"da7923e7-9adc-4360-b637-eb960b4f1da6"]
+ CellID->993708341,ExpressionUUID->"0db0b171-7399-40d4-bb03-e79ff5957c72"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -159,7 +160,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "LibraryResources"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"c39752a3-1962-4916-abf9-f91be349ff03"]], \
+   "Text"}]],ExpressionUUID->"7d311b20-837e-4a67-87a0-d0ba1faf79e1"]], \
 "FileManagerDirectory",
  CellMargins->{{Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 100},
@@ -170,7 +171,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerDirectoryIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->275764468,ExpressionUUID->"316f6008-5c9a-45d1-8a86-b1a615504fd5"],
+ CellID->275764468,ExpressionUUID->"1a787bc3-82f3-4dd6-8047-59c2881c6865"],
 
 Cell[CellGroupData[{
 
@@ -195,7 +196,7 @@ Cell[TextData[Cell[BoxData[
     NotebookDirectory[], "LibraryResources", "MacOSX-ARM64"}],
   BoxID -> "FileTreePath",
   BaseStyle->{
-   "Text"}]],ExpressionUUID->"5fe2cabb-30bd-43f1-964f-009ece8cf806"]], \
+   "Text"}]],ExpressionUUID->"ec7a1815-7fa1-40eb-9928-ab6273ba3955"]], \
 "FileManagerDirectory",
  CellMargins->{{23 + Inherited, Inherited}, {Inherited, Inherited}},
  CellGroupingRules->{"SectionGrouping", 110},
@@ -206,7 +207,7 @@ Cell[TextData[Cell[BoxData[
       TemplateBox[{}, "FileManagerDirectoryIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->503703450,ExpressionUUID->"39192cb1-c82a-431e-a09f-6a2558f13e6a"],
+ CellID->503703450,ExpressionUUID->"8fa4b755-6d5c-4d9c-9300-cc35f552f5ec"],
 
 Cell[BoxData[
  InterpretationBox[
@@ -232,7 +233,7 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerUnknownIconTemplate"]], Background -> None],
      Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->363347676,ExpressionUUID->"8fbe97fb-1d14-431b-9282-97aabd8fba26"]
+ CellID->363347676,ExpressionUUID->"bcac1cdb-98b4-412e-b796-d1d06520a1fa"]
 }, Closed]]
 }, Closed]],
 
@@ -258,19 +259,19 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerPacletInfoIconTemplate"]], Background -> 
      None], Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1488382111,ExpressionUUID->"9874e929-73a4-4bdd-ba3b-072e4d47a553"],
+ CellID->1488382111,ExpressionUUID->"18bda155-79e0-4cc3-bc44-c41debcc50e1"],
 
 Cell[BoxData[
  InterpretationBox[
   TagBox[
-   TemplateBox[{"\"PhysicsModelLink | Definition Notebook.nb\"", 
+   TemplateBox[{"\"ResourceDefinition.nb\"", 
      FileNameJoin[{
-       NotebookDirectory[], "PhysicsModelLink | Definition Notebook.nb"}]},
+       NotebookDirectory[], "ResourceDefinition.nb"}]},
     "FileManagerFileOpenerTemplate"],
    Annotation[#, 
     DefinitionNotebookClient`TemplateCells`PackagePrivate`fileDepth[0]]& ],
   FileNameJoin[{
-    NotebookDirectory[], "PhysicsModelLink | Definition Notebook.nb"}],
+    NotebookDirectory[], "ResourceDefinition.nb"}],
   BoxID -> "FileTreePath",
   BaseStyle->{"Text"}]], "FileManagerFile",
  CellMargins->{{Inherited, Inherited}, {Inherited, Inherited}},
@@ -282,13 +283,13 @@ Cell[BoxData[
       TemplateBox[{}, "FileManagerNBIconTemplate"]], Background -> None], 
     Inherited}, {Inherited, Inherited}},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->2115563686,ExpressionUUID->"2a91b3f7-ebe0-47f6-b2ee-cf74b2ae410d"],
+ CellID->1617681372,ExpressionUUID->"0f7c62ff-161a-4917-b67a-d82d8169f609"],
 
 Cell["", "FileManagerBottomSpacer",
  CellGroupingRules->{"SectionGrouping", 100},
  TaggingRules->{},
  CellTags->{"FileManagerCell", "FileManager-PacletFiles"},
- CellID->1348619321,ExpressionUUID->"8a3b7257-4509-4476-8c56-35419ae49d4d"]
+ CellID->1348619321,ExpressionUUID->"e762f529-8074-4e95-9e8a-93fbfa408456"]
 }, Open  ]]
 }, Open  ]],
 
@@ -11297,8 +11298,16 @@ text that users will see when visiting the main landing page of your paclet.",
  CellTags->{"Basic Description", "LongDescription", "TemplateCellGroup"},
  CellID->97826971,ExpressionUUID->"caca2fbd-7513-453f-b5e5-1bff9392b6f6"],
 
-Cell["A paragraph that describes your paclet in more detail.", "Text",
+Cell["\<\
+PhysicsModelLink provides a high-level interface for creating and simulating \
+rigid body physics in the Wolfram Language. It lets you wrap standard 3D \
+graphics primitives\[LongDash]such as spheres, cuboids, cylinders, cones, and \
+capsules\[LongDash]as dynamic or fixed bodies, run time-stepped physics \
+simulations with gravity and collisions, and visualize or animate the results \
+as Graphics3D scenes.\
+\>", "Text",
  TaggingRules->{},
+ CellChangeTimes->{3.985006889218649*^9},
  CellTags->"DefaultContent",
  CellID->312061637,ExpressionUUID->"1a2b2116-1af7-4f2c-986d-bfc203c0ddb4"]
 }, Open  ]],
@@ -11336,10 +11345,312 @@ examples on the webpage for the resource.", "MoreInfoText"], Background ->
  CellTags->{"Details", "TemplateCellGroup"},
  CellID->280804237,ExpressionUUID->"90fd0780-279d-4a5a-a8d4-00d4c08c1981"],
 
-Cell["Additional information about the paclet.", "Notes",
+Cell[TextData[{
+ "PhysicsModelLink provides rigid body physics simulation for standard \
+Wolfram Language 3D graphics primitives including ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["Sphere", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/Sphere",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "ccf947d9-37b0-43ac-a3ff-61a7b1997346"],
+ ", ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["Cuboid", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/Cuboid",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "0d3d63f7-2f0a-4421-b24d-2ed6b738dcd5"],
+ ", ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["Cylinder", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/Cylinder",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "0e090d6e-e3c0-456c-9db6-78032fac09f3"],
+ ", ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["Cone", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/Cone",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "85c87801-d2b4-4879-91f2-f3c02d9168b0"],
+ ", and ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["CapsuleShape", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/CapsuleShape",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "1090b742-c5b1-4cbd-b65f-5456c6174f2b"],
+ "."
+}], "Notes",
  TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007098664819*^9}},
  CellTags->"DefaultContent",
- CellID->741278932,ExpressionUUID->"167ee410-ed24-4a9a-9d56-9c389e922706"]
+ CellID->741278932,ExpressionUUID->"167ee410-ed24-4a9a-9d56-9c389e922706"],
+
+Cell[TextData[{
+ "The underlying physics engine is the Rapier 3D physics library (Rust crate ",
+ ButtonBox["rapier3d",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://rapier.rs/"], None}],
+ "), accessed via ",
+ ButtonBox["LibraryLink",
+  BaseStyle->"Hyperlink",
+  ButtonData->{
+    URL["https://reference.wolfram.com/language/guide/LibraryLink.html"], 
+    None},
+  ButtonNote->"https://reference.wolfram.com/language/guide/LibraryLink.html"],
+ "."
+}], "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.9850071112448807`*^9}, 
+   3.9850071529236403`*^9, {3.985007461950696*^9, 3.985007461950851*^9}},
+ CellTags->"DefaultContent",
+ CellID->1886878278,ExpressionUUID->"d6a1f1a6-06e3-4d3d-afe5-ce123348c297"],
+
+Cell["\<\
+Simulations are stateful: CreatePhysicsModel allocates a persistent physics \
+world in memory, and DestroyPhysicsModel frees it. Each world is identified \
+by a unique integer handle.\
+\>", "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.985007477116233*^9}},
+ CellTags->"DefaultContent",
+ CellID->1253032187,ExpressionUUID->"8e643ca6-0a48-400d-816c-44f4d6ed6270"],
+
+Cell["\<\
+Bodies are classified as either DynamicBody (affected by gravity and \
+collisions) or FixedBody (immovable obstacles/floors).\
+\>", "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.9850074821562843`*^9}},
+ CellTags->"DefaultContent",
+ CellID->586570958,ExpressionUUID->"ad59b546-8fd3-4c69-8f22-833d2bea8024"],
+
+Cell["\<\
+Each body has physical material properties that can be set via options: \
+\"Density\" (default 1.0), \"Restitution\" (bounciness, default 0.5), and \
+\"Friction\" (default 0.5).\
+\>", "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.985007488367086*^9}},
+ CellTags->"DefaultContent",
+ CellID->1548151376,ExpressionUUID->"635c89a0-4c28-41d8-a8de-70a86834594c"],
+
+Cell["\<\
+Initial velocities can be assigned to dynamic bodies using the \"Velocity\" \
+option.\
+\>", "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.985007492561038*^9}},
+ CellTags->"DefaultContent",
+ CellID->699754555,ExpressionUUID->"95e267ec-b4c2-4600-a786-e9c9b4f4c5e1"],
+
+Cell[TextData[{
+ "Body orientations are tracked internally as quaternions and converted \
+to/from 3\[Times]3 rotation matrices for compatibility with ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["GeometricTransformation", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/GeometricTransformation",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "5f4ef856-4bb9-4f96-87d5-f67e5a2f022d"],
+ "."
+}], "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.9850074957809687`*^9}},
+ CellTags->"DefaultContent",
+ CellID->2122180060,ExpressionUUID->"1e8400f8-7818-4675-be6d-006691a0aaa4"],
+
+Cell[TextData[{
+ "Time evolution is performed with PhysicsModelIterate, which steps the \
+simulation by a given number of substeps at a fixed time increment ",
+ Cell[BoxData[
+  StyleBox["dt", "TI"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "a4d62e44-b3e5-4b9c-81eb-e16016ad7d34"],
+ ". Smaller ",
+ Cell[BoxData[
+  StyleBox["dt", "TI"]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "1736b71c-0460-4949-9495-5416e06195b5"],
+ " values yield more accurate results."
+}], "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.9850075133038607`*^9}},
+ CellTags->"DefaultContent",
+ CellID->989421178,ExpressionUUID->"1c642a9a-43da-4942-a926-980594a3ac9f"],
+
+Cell["\<\
+PhysicsModelEvolve is a convenience function that collects a sequence of \
+PhysicsModelObject frames for animation.\
+\>", "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.9850075194202147`*^9}},
+ CellTags->"DefaultContent",
+ CellID->2124461165,ExpressionUUID->"9e8ef58b-afc3-400b-ac5f-bcff222294b3"],
+
+Cell[TextData[{
+ "PhysicsModelPlot renders the current state as a ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["Graphics3D", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/Graphics3D",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "658aa12b-cca6-4dd1-a009-4cbbbf0871b7"],
+ " scene, automatically applying positions and rotations returned by the \
+engine."
+}], "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.985007520680356*^9}},
+ CellTags->"DefaultContent",
+ CellID->1755685133,ExpressionUUID->"816d942b-792e-43b0-b2a7-cf957b157f3a"],
+
+Cell["\<\
+PhysicsBoundaryBox generates six invisible FixedBody walls to confine objects \
+within a bounding region.\
+\>", "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.985007521514124*^9}},
+ CellTags->"DefaultContent",
+ CellID->1274520299,ExpressionUUID->"e00ca52e-3c5a-4748-8d34-dd3a2bca7e81"],
+
+Cell[TextData[{
+ "PhysicsModelVideo produces an ",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["AnimationVideo", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/AnimationVideo",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "5d7804f1-0712-4de2-84ec-b8bd1ef55e4b"],
+ " from a list of simulation frames."
+}], "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.985007523465748*^9}},
+ CellTags->"DefaultContent",
+ CellID->365083140,ExpressionUUID->"0e3c2858-bc5d-4761-8e91-46395410fc0b"],
+
+Cell[TextData[{
+ "The Rapier library is compiled as a platform-specific shared library \
+(.dylib on macOS,.so on Linux,.dll on Windows) and loaded from the paclet's \
+LibraryResources/",
+ Cell[BoxData[
+  TagBox[
+   ButtonBox[
+    StyleBox["$SystemID", "SymbolsRefLink",
+     ShowStringCharacters->True,
+     FontFamily->"Source Sans Pro"],
+    BaseStyle->Dynamic[
+      FEPrivate`If[
+       CurrentValue["MouseOver"], {
+       "Link", FontColor -> RGBColor[0.8549, 0.39608, 0.1451]}, {"Link"}]],
+    ButtonData->"paclet:ref/$SystemID",
+    ContentPadding->False],
+   MouseAppearanceTag["LinkHand"]]], "InlineFormula",
+  FontFamily->"Source Sans Pro",ExpressionUUID->
+  "f38603e0-0664-4bac-99ef-a97f95c76b01"],
+ "/ directory at package initialization."
+}], "Notes",
+ TaggingRules->{},
+ CellChangeTimes->{{3.985007074001012*^9, 3.985007109509831*^9}, {
+  3.985007428054206*^9, 3.9850074435358267`*^9}, {3.985007473656295*^9, 
+  3.985007508875208*^9}},
+ CellTags->"DefaultContent",
+ CellID->1347920559,ExpressionUUID->"ffc6c61e-a2d2-443d-9032-a043a1c59f1f"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -14912,8 +15223,9 @@ Cell[BoxData[
           "RowDefault"]},
         {
          TemplateBox[{
-           CheckboxBox[False, {False, "External Interfaces & Connections"}], 
-           "\" \"", 
+           CheckboxBox[
+           "External Interfaces & Connections", {
+            False, "External Interfaces & Connections"}], "\" \"", 
            StyleBox[
            "\"External Interfaces & Connections\"", FontSize -> 12, Editable -> 
             False, StripOnInput -> False]},
@@ -14980,7 +15292,9 @@ Cell[BoxData[
           "RowDefault"]},
         {
          TemplateBox[{
-           CheckboxBox[False, {False, "Visualization & Graphics"}], "\" \"", 
+           CheckboxBox[
+           "Visualization & Graphics", {False, "Visualization & Graphics"}], 
+           "\" \"", 
            StyleBox[
            "\"Visualization & Graphics\"", FontSize -> 12, Editable -> False, 
             StripOnInput -> False]},
@@ -15001,8 +15315,9 @@ Cell[BoxData[
           "RowDefault"]},
         {
          TemplateBox[{
-           CheckboxBox[False, {False, "Engineering Data & Computation"}], 
-           "\" \"", 
+           CheckboxBox[
+           "Engineering Data & Computation", {
+            False, "Engineering Data & Computation"}], "\" \"", 
            StyleBox[
            "\"Engineering Data & Computation\"", FontSize -> 12, Editable -> 
             False, StripOnInput -> False]},
@@ -15098,6 +15413,7 @@ Cell[BoxData[
 D3OYma5peckpaeCrIZKP1PKKPUA+YbotsDgqzKTsCQxi3UVyRpCSLV+\
 PwXkIlPiGCYK7Cwowu4Mn5exvtmJOR/MHd70lCD4AidngdWcTj1eE3NewiDnY27wHy4PQCF/\
 4nlKcnM1sewZ0MUi4JJ8fjELq2d8zZ7IK06eYLV9301GV"},
+ CellChangeTimes->{{3.985007543369549*^9, 3.985007567195861*^9}},
  CellTags->{"Categories", "Categories-Checkboxes", "CheckboxCell"},
  CellID->492592839,ExpressionUUID->"f588e282-7bd6-4191-ab19-3aa3ddb56d10"]
 }, Open  ]],
@@ -15414,7 +15730,6 @@ Cell[TextData[{
        FrameBox[
         Cell[
          TextData[{
-          
           "Select all evaluation environments where your paclet is expected \
 to be compatible. See ", 
            Cell[
@@ -16440,7 +16755,7 @@ Cell[BoxData[
      TagBox[GridBox[{
         {
          TemplateBox[{
-           CheckboxBox[False, {False, "Other"}], "\" \"", 
+           CheckboxBox["Other", {False, "Other"}], "\" \"", 
            StyleBox[
             TemplateBox[{"\"Other\"", 
               TemplateBox[{"DisclosuresOther", 
@@ -16491,9 +16806,16 @@ i6RIdyTThuSYGmeNYl7b6YdYSaGgLWlZgAIz985p1a5fs51TOng0ugDjyk7TXxYVim3X8786QOYVRg\
 vckzOx6yl8pjySeYOrV5Mc3jJp4W/0P7N0/\
 NM3Z0RP28ojLX2u7NmAp3QSKwemMAhYkzOcqZL6tQV8yKPIW3SMFT70JtVJWb1xG3zWCnXjBKz2JoV\
 VWeCv4ZGlsoq/qgbksacmcXTxC1nIgX8="},
+ CellChangeTimes->{3.9850075805957947`*^9},
  CellTags->{"CheckboxCell", "Disclosures-Other", "Other", "Other-Checkboxes"},
  
- CellID->313820956,ExpressionUUID->"19c56483-2824-4853-980b-4bb4e668dd05"]
+ CellID->313820956,ExpressionUUID->"19c56483-2824-4853-980b-4bb4e668dd05"],
+
+Cell["\<\
+Large portions of the code were interactively generated with the help of LLMs.\
+\>", "Text", "DisclosureDetails",
+ CellChangeTimes->{{3.985007594302615*^9, 3.9850076268079853`*^9}},
+ CellID->1983330455,ExpressionUUID->"1f9d668a-f0f4-417c-be77-40bd250ecf87"]
 }, Open  ]]
 }, Open  ]],
 
@@ -16584,7 +16906,7 @@ DockedCells->{
                     DateString[
                     TimeZoneConvert[
                     DateObject[
-                    3.985006562384405`16.35300403007527*^9, TimeZone -> 0]], {
+                    3.985007416070291`16.35300412311176*^9, TimeZone -> 0]], {
                     "MonthName", " ", "DayShort", ", ", "Year", " ", 
                     "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
                     StandardForm], SingleEvaluation -> True, Evaluator -> 
@@ -16608,7 +16930,7 @@ DockedCells->{
                     DateString[
                     TimeZoneConvert[
                     DateObject[
-                    3.985006562384405`16.35300403007527*^9, TimeZone -> 0]], {
+                    3.985007416070291`16.35300412311176*^9, TimeZone -> 0]], {
                     "MonthName", " ", "DayShort", ", ", "Year", " ", 
                     "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
                     StandardForm], SingleEvaluation -> True, Evaluator -> 
@@ -16634,7 +16956,7 @@ DockedCells->{
                    DateString[
                     TimeZoneConvert[
                     DateObject[
-                    3.985006562384405`16.35300403007527*^9, TimeZone -> 0]], {
+                    3.985007416070291`16.35300412311176*^9, TimeZone -> 0]], {
                     "MonthName", " ", "DayShort", ", ", "Year", " ", 
                     "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
                    SingleEvaluation -> True, Evaluator -> "System"], 
@@ -16648,7 +16970,7 @@ DockedCells->{
               DateString[
                TimeZoneConvert[
                 DateObject[
-                3.985006562384405`16.35300403007527*^9, TimeZone -> 0]], {
+                3.985007416070291`16.35300412311176*^9, TimeZone -> 0]], {
                "MonthName", " ", "DayShort", ", ", "Year", " ", "Hour12Short",
                  ":", "Minute", " ", "AMPMLowerCase"}], StandardForm], 
              SingleEvaluation -> True, Evaluator -> "System"], FontSlant -> 
@@ -16657,179 +16979,7 @@ DockedCells->{
          "\"   \"", 
          ItemBox[
           StyleBox[
-          "\"Found 2 suggestions\"", LineBreakWithin -> Automatic, LineIndent -> 
-           0, StripOnInput -> False], ItemSize -> Fit, StripOnInput -> False],
-          "", 
-         TagBox[
-          ButtonBox[
-           TagBox[
-            PaneSelectorBox[{False -> GraphicsBox[{
-                 GrayLevel[
-                  NCache[
-                   Rational[64, 85], 0.7529411764705882]], 
-                 
-                 PolygonBox[{{-0.282842712474619, -0.42426406871192845`}, \
-{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
-                  0.42426406871192845`}, {0.42426406871192845`, 
-                  0.282842712474619}}], 
-                 
-                 PolygonBox[{{0.42426406871192845`, -0.282842712474619}, {
-                  0.282842712474619, -0.42426406871192845`}, \
-{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
-                  0.42426406871192845`}}]}, ImageSize -> 18, PlotRangePadding -> 
-                0, PlotRange -> 0.7, Background -> None], True -> GraphicsBox[{
-                 GrayLevel[
-                  NCache[
-                   Rational[128, 255], 0.5019607843137255]], 
-                 
-                 PolygonBox[{{-0.282842712474619, -0.42426406871192845`}, \
-{-0.42426406871192845`, -0.282842712474619}, {0.282842712474619, 
-                  0.42426406871192845`}, {0.42426406871192845`, 
-                  0.282842712474619}}], 
-                 
-                 PolygonBox[{{0.42426406871192845`, -0.282842712474619}, {
-                  0.282842712474619, -0.42426406871192845`}, \
-{-0.42426406871192845`, 0.282842712474619}, {-0.282842712474619, 
-                  0.42426406871192845`}}]}, ImageSize -> 18, PlotRangePadding -> 
-                0, PlotRange -> 0.7, Background -> None]}, 
-             Dynamic[
-              CurrentValue["MouseOver"]], ImageSize -> Automatic, 
-             FrameMargins -> 0], 
-            MouseAppearanceTag["LinkHand"]], ButtonFunction :> 
-           With[{DefinitionNotebookClient`Stripes`PackagePrivate`nbo$ = 
-              EvaluationNotebook[]}, 
-             CurrentValue[
-              DefinitionNotebookClient`Stripes`PackagePrivate`nbo$, 
-               DockedCells] = If[
-               TrueQ[
-                MemberQ[
-                 CurrentValue["ModifierKeys"], "Control"]], 
-               DeleteCases[
-                Flatten[{
-                  CurrentValue[
-                  DefinitionNotebookClient`Stripes`PackagePrivate`nbo$, 
-                   DockedCells]}], 
-                Cell[
-                 Blank[], "StripeCell", 
-                 BlankNullSequence[]]], 
-               DeleteCases[
-                Flatten[{
-                  CurrentValue[
-                  DefinitionNotebookClient`Stripes`PackagePrivate`nbo$, 
-                   DockedCells]}], 
-                Condition[
-                 Pattern[DefinitionNotebookClient`Stripes`PackagePrivate`c$, 
-                  Blank[Cell]], 
-                 Not[
-                  FreeQ[
-                  DefinitionNotebookClient`Stripes`PackagePrivate`c$, 
-                   "02fe5305-2f57-437b-b98e-e03678353710"]]]]]], Appearance -> 
-           None, BoxID -> "02fe5305-2f57-437b-b98e-e03678353710", Evaluator -> 
-           Automatic, Method -> "Preemptive"], 
-          MouseAppearanceTag["LinkHand"]]}}, 
-       GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}, 
-       AutoDelete -> False, 
-       GridBoxItemSize -> {
-        "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}], "Grid"], 
-     "Text", FontSize -> 12, FontColor -> GrayLevel[0.25], StripOnInput -> 
-     False]], "StripeCell", CellFrameMargins -> {{20, 5}, {2, 2}}, 
-   CellFrame -> {{0, 0}, {1, 0}}, CellFrameColor -> GrayLevel[0.75]], 
-  Cell[
-   BoxData[
-    StyleBox[
-     TagBox[
-      GridBox[{{
-         OverlayBox[{
-           StyleBox[
-            TagBox[
-             DynamicModuleBox[{Typeset`var$$ = False}, 
-              InterpretationBox[
-               StyleBox[
-                PaneSelectorBox[{False -> GridBox[{{
-                    OpenerBox[
-                    Dynamic[Typeset`var$$], Appearance -> Automatic, Enabled -> 
-                    Automatic, AutoAction -> False, ContinuousAction -> 
-                    False], 
-                    StyleBox[
-                    DynamicBox[
-                    ToBoxes[
-                    DateString[
-                    TimeZoneConvert[
-                    DateObject[
-                    3.985006606271237`16.35300403485815*^9, TimeZone -> 0]], {
-                    "MonthName", " ", "DayShort", ", ", "Year", " ", 
-                    "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
-                    StandardForm], SingleEvaluation -> True, Evaluator -> 
-                    "System"], FontSlant -> Italic, FontColor -> 
-                    GrayLevel[0.5], FontSize -> 0.9 Inherited, StripOnInput -> 
-                    False]}}, GridBoxAlignment -> {"Columns" -> {{Left}}}, 
-                    AutoDelete -> False, 
-                    GridBoxBackground -> {"Columns" -> {{Automatic}}}, 
-                    GridBoxItemSize -> {
-                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                    GridBoxSpacings -> {
-                    "Columns" -> {{0.2}}, "Rows" -> {{0.5}}}, 
-                    BaselinePosition -> {1, 1}], True -> GridBox[{{
-                    OpenerBox[
-                    Dynamic[Typeset`var$$], Appearance -> Automatic, Enabled -> 
-                    Automatic, AutoAction -> False, ContinuousAction -> 
-                    False], 
-                    StyleBox[
-                    DynamicBox[
-                    ToBoxes[
-                    DateString[
-                    TimeZoneConvert[
-                    DateObject[
-                    3.985006606271237`16.35300403485815*^9, TimeZone -> 0]], {
-                    "MonthName", " ", "DayShort", ", ", "Year", " ", 
-                    "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
-                    StandardForm], SingleEvaluation -> True, Evaluator -> 
-                    "System"], FontSlant -> Italic, FontColor -> 
-                    GrayLevel[0.5], FontSize -> 0.9 Inherited, StripOnInput -> 
-                    False]}, {"", 
-                    PaneBox["\"\"", ImageMargins -> 0]}}, 
-                    GridBoxAlignment -> {"Columns" -> {{Left}}}, AutoDelete -> 
-                    False, GridBoxBackground -> {"Columns" -> {{Automatic}}}, 
-                    GridBoxItemSize -> {
-                    "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
-                    GridBoxSpacings -> {
-                    "Columns" -> {{0.2}}, "Rows" -> {{0.5}}}, 
-                    BaselinePosition -> {1, 1}]}, 
-                 Dynamic[
-                  TrueQ[Typeset`var$$]], Alignment -> Automatic, ImageSize -> 
-                 Automatic, ImageMargins -> 0, BaseStyle -> {}, 
-                 DefaultBaseStyle -> "OpenerView", BaselinePosition -> 
-                 Baseline], Deployed -> False, StripOnInput -> False], 
-               OpenerView[{
-                 Style[
-                  Dynamic[
-                   DateString[
-                    TimeZoneConvert[
-                    DateObject[
-                    3.985006606271237`16.35300403485815*^9, TimeZone -> 0]], {
-                    "MonthName", " ", "DayShort", ", ", "Year", " ", 
-                    "Hour12Short", ":", "Minute", " ", "AMPMLowerCase"}], 
-                   SingleEvaluation -> True, Evaluator -> "System"], 
-                  FontSlant -> Italic, FontColor -> GrayLevel[0.5], FontSize -> 
-                  0.9 Inherited], ""}, False]], DynamicModuleValues -> 
-              Automatic], Setting[#, {0}]& ], ShowContents -> False, 
-            StripOnInput -> False], 
-           StyleBox[
-            DynamicBox[
-             ToBoxes[
-              DateString[
-               TimeZoneConvert[
-                DateObject[
-                3.985006606271237`16.35300403485815*^9, TimeZone -> 0]], {
-               "MonthName", " ", "DayShort", ", ", "Year", " ", "Hour12Short",
-                 ":", "Minute", " ", "AMPMLowerCase"}], StandardForm], 
-             SingleEvaluation -> True, Evaluator -> "System"], FontSlant -> 
-            Italic, FontColor -> GrayLevel[0.5], FontSize -> 0.9 Inherited, 
-            StripOnInput -> False]}, Alignment -> {Right, Baseline}], 
-         "\"   \"", 
-         ItemBox[
-          StyleBox[
-          "\"Found 4 suggestions\"", LineBreakWithin -> Automatic, LineIndent -> 
+          "\"Found 5 suggestions\"", LineBreakWithin -> Automatic, LineIndent -> 
            0, StripOnInput -> False], ItemSize -> Fit, StripOnInput -> False], 
          StyleBox[
           ActionMenuBox[
@@ -16848,7 +16998,7 @@ DockedCells->{
                     BaselinePosition -> Scaled[0.1]], 
                     TemplateBox[{1}, "Spacer1"], 
                     StyleBox[
-                    "4", FontSize -> 14, FontWeight -> Plain, FontColor -> 
+                    "5", FontSize -> 14, FontWeight -> Plain, FontColor -> 
                     GrayLevel[0.25], FontFamily -> "Source Sans Pro", 
                     StripOnInput -> False]}, "RowDefault"], 
                     "\"Suggestions found\""}, "PrettyTooltipTemplate"]}}, 
@@ -16879,45 +17029,17 @@ DockedCells->{
                    0.49019607843137253`]}, "HintPodIconHint"], 
                 ImageSize -> {10, 10}, ImageSizeAction -> "ShrinkToFit", 
                 BaselinePosition -> Scaled[0.1]], "\" \"", 
-               TemplateBox[{"\"Suspicious use of session symbol \"", 
-                 StyleBox[
-                 "Print", "Program", FontWeight -> Medium, 
-                  ShowStringCharacters -> True, StripOnInput -> False], 
-                 "\".\\!\\(\\*StyleBox[\\\"\\\\\\\" (L127,C3) \\\\\\\"\\\", \
-Rule[FontOpacity, 0.65`], Rule[FontSize, Times[0.9`, Inherited]], \
-Rule[PrivateFontOptions, List[Rule[\\\"OperatorSubstitution\\\", False]]], \
-Rule[StripOnInput, False]]\\)\""}, "RowDefault"]}, "RowDefault"] :> 
-            DefinitionNotebookClient`WithCurrentNotebook[
+               "\"\\\"AnimationVideo\\\" appears to be unformatted code\""}, 
+              "RowDefault"] :> DefinitionNotebookClient`WithCurrentNotebook[
               EvaluationNotebook[], 
               DefinitionNotebookClient`LoadDefinitionNotebook[
                "Paclet", DefinitionNotebookClient`$CurrentNotebook]; 
               DefinitionNotebookClient`PackageScope`setHint[
                "Suggestion", "Paclet", 
                 DefinitionNotebookClient`$CurrentNotebook, 
-                "18491d63-db70-4b35-9977-366869bd04e8", 993708341, 
-                "CodeInspectionFileIssue/SuspiciousSessionSymbol", <|
-                "File" -> 
-                 "/Users/arnoudb/github/PhysicsModelLink/PhysicsModelLink/\
-Kernel/PhysicsModelLink.wl", "Editor" -> Automatic, "SourceLineStart" -> 127, 
-                 "SourceColumnStart" -> 3, "SourceLineEnd" -> 127, 
-                 "SourceColumnEnd" -> 8, "Message" -> 
-                 "Suspicious use of session symbol \
-``Print``.\!\(\*StyleBox[\"\\\" (L127,C3) \\\"\", Rule[FontOpacity, 0.65`], \
-Rule[FontSize, Times[0.9`, Inherited]], Rule[PrivateFontOptions, \
-List[Rule[\"OperatorSubstitution\", False]]], Rule[StripOnInput, False]]\)", 
-                 "SourceInformation" -> 
-                 CodeInspector`InspectionObject[
-                  "SuspiciousSessionSymbol", 
-                   "Suspicious use of session symbol ``Print``.", "Warning", <|
-                   CodeParser`Source -> {{127, 3}, {127, 8}}, ConfidenceLevel -> 
-                    0.55, "File" -> 
-                    "/Users/arnoudb/github/PhysicsModelLink/PhysicsModelLink/\
-Kernel/PhysicsModelLink.wl", "Editor" -> Automatic|>], "Hash" -> 
-                 7124972217795407782, "Position" -> 
-                 "\!\(\*StyleBox[\"\\\" (L127,C3) \\\"\", Rule[FontOpacity, \
-0.65`], Rule[FontSize, Times[0.9`, Inherited]], Rule[PrivateFontOptions, \
-List[Rule[\"OperatorSubstitution\", False]]], Rule[StripOnInput, \
-False]]\)"|>]; DefinitionNotebookClient`PackageScope`seekAfter[993708341]; 
+                "789f1664-5f23-4242-b4bf-f090fc5e7784", 1253032187, 
+                "FoundUnformattedCode", {"AnimationVideo"}]; 
+              DefinitionNotebookClient`PackageScope`seekAfter[1253032187]; 
               Null], TemplateBox[{
                PaneBox[
                 TemplateBox[{
@@ -16926,45 +17048,17 @@ False]]\)"|>]; DefinitionNotebookClient`PackageScope`seekAfter[993708341];
                    0.49019607843137253`]}, "HintPodIconHint"], 
                 ImageSize -> {10, 10}, ImageSizeAction -> "ShrinkToFit", 
                 BaselinePosition -> Scaled[0.1]], "\" \"", 
-               TemplateBox[{"\"Suspicious use of session symbol \"", 
-                 StyleBox[
-                 "Print", "Program", FontWeight -> Medium, 
-                  ShowStringCharacters -> True, StripOnInput -> False], 
-                 "\".\\!\\(\\*StyleBox[\\\"\\\\\\\" (L241,C7) \\\\\\\"\\\", \
-Rule[FontOpacity, 0.65`], Rule[FontSize, Times[0.9`, Inherited]], \
-Rule[PrivateFontOptions, List[Rule[\\\"OperatorSubstitution\\\", False]]], \
-Rule[StripOnInput, False]]\\)\""}, "RowDefault"]}, "RowDefault"] :> 
-            DefinitionNotebookClient`WithCurrentNotebook[
+               "\"\\\"GeometricTransformation\\\" appears to be unformatted \
+code\""}, "RowDefault"] :> DefinitionNotebookClient`WithCurrentNotebook[
               EvaluationNotebook[], 
               DefinitionNotebookClient`LoadDefinitionNotebook[
                "Paclet", DefinitionNotebookClient`$CurrentNotebook]; 
               DefinitionNotebookClient`PackageScope`setHint[
                "Suggestion", "Paclet", 
                 DefinitionNotebookClient`$CurrentNotebook, 
-                "e88aab21-78a4-441d-b245-f7b452c746aa", 993708341, 
-                "CodeInspectionFileIssue/SuspiciousSessionSymbol", <|
-                "File" -> 
-                 "/Users/arnoudb/github/PhysicsModelLink/PhysicsModelLink/\
-Kernel/PhysicsModelLink.wl", "Editor" -> Automatic, "SourceLineStart" -> 241, 
-                 "SourceColumnStart" -> 7, "SourceLineEnd" -> 241, 
-                 "SourceColumnEnd" -> 12, "Message" -> 
-                 "Suspicious use of session symbol \
-``Print``.\!\(\*StyleBox[\"\\\" (L241,C7) \\\"\", Rule[FontOpacity, 0.65`], \
-Rule[FontSize, Times[0.9`, Inherited]], Rule[PrivateFontOptions, \
-List[Rule[\"OperatorSubstitution\", False]]], Rule[StripOnInput, False]]\)", 
-                 "SourceInformation" -> 
-                 CodeInspector`InspectionObject[
-                  "SuspiciousSessionSymbol", 
-                   "Suspicious use of session symbol ``Print``.", "Warning", <|
-                   CodeParser`Source -> {{241, 7}, {241, 12}}, 
-                    ConfidenceLevel -> 0.55, "File" -> 
-                    "/Users/arnoudb/github/PhysicsModelLink/PhysicsModelLink/\
-Kernel/PhysicsModelLink.wl", "Editor" -> Automatic|>], "Hash" -> 
-                 7124972217795407782, "Position" -> 
-                 "\!\(\*StyleBox[\"\\\" (L241,C7) \\\"\", Rule[FontOpacity, \
-0.65`], Rule[FontSize, Times[0.9`, Inherited]], Rule[PrivateFontOptions, \
-List[Rule[\"OperatorSubstitution\", False]]], Rule[StripOnInput, \
-False]]\)"|>]; DefinitionNotebookClient`PackageScope`seekAfter[993708341]; 
+                "702cbcb5-ee0c-4707-a315-c5284ba2335f", 1253032187, 
+                "FoundUnformattedCode", {"GeometricTransformation"}]; 
+              DefinitionNotebookClient`PackageScope`seekAfter[1253032187]; 
               Null], TemplateBox[{
                PaneBox[
                 TemplateBox[{
@@ -16973,45 +17067,17 @@ False]]\)"|>]; DefinitionNotebookClient`PackageScope`seekAfter[993708341];
                    0.49019607843137253`]}, "HintPodIconHint"], 
                 ImageSize -> {10, 10}, ImageSizeAction -> "ShrinkToFit", 
                 BaselinePosition -> Scaled[0.1]], "\" \"", 
-               TemplateBox[{"\"Suspicious use of session symbol \"", 
-                 StyleBox[
-                 "Print", "Program", FontWeight -> Medium, 
-                  ShowStringCharacters -> True, StripOnInput -> False], 
-                 "\".\\!\\(\\*StyleBox[\\\"\\\\\\\" (L264,C7) \\\\\\\"\\\", \
-Rule[FontOpacity, 0.65`], Rule[FontSize, Times[0.9`, Inherited]], \
-Rule[PrivateFontOptions, List[Rule[\\\"OperatorSubstitution\\\", False]]], \
-Rule[StripOnInput, False]]\\)\""}, "RowDefault"]}, "RowDefault"] :> 
-            DefinitionNotebookClient`WithCurrentNotebook[
+               "\"\\\"Graphics3D\\\" appears to be unformatted code\""}, 
+              "RowDefault"] :> DefinitionNotebookClient`WithCurrentNotebook[
               EvaluationNotebook[], 
               DefinitionNotebookClient`LoadDefinitionNotebook[
                "Paclet", DefinitionNotebookClient`$CurrentNotebook]; 
               DefinitionNotebookClient`PackageScope`setHint[
                "Suggestion", "Paclet", 
                 DefinitionNotebookClient`$CurrentNotebook, 
-                "8fe0e6e9-4e22-48a2-a8e5-3bde8ed49c2f", 993708341, 
-                "CodeInspectionFileIssue/SuspiciousSessionSymbol", <|
-                "File" -> 
-                 "/Users/arnoudb/github/PhysicsModelLink/PhysicsModelLink/\
-Kernel/PhysicsModelLink.wl", "Editor" -> Automatic, "SourceLineStart" -> 264, 
-                 "SourceColumnStart" -> 7, "SourceLineEnd" -> 264, 
-                 "SourceColumnEnd" -> 12, "Message" -> 
-                 "Suspicious use of session symbol \
-``Print``.\!\(\*StyleBox[\"\\\" (L264,C7) \\\"\", Rule[FontOpacity, 0.65`], \
-Rule[FontSize, Times[0.9`, Inherited]], Rule[PrivateFontOptions, \
-List[Rule[\"OperatorSubstitution\", False]]], Rule[StripOnInput, False]]\)", 
-                 "SourceInformation" -> 
-                 CodeInspector`InspectionObject[
-                  "SuspiciousSessionSymbol", 
-                   "Suspicious use of session symbol ``Print``.", "Warning", <|
-                   CodeParser`Source -> {{264, 7}, {264, 12}}, 
-                    ConfidenceLevel -> 0.55, "File" -> 
-                    "/Users/arnoudb/github/PhysicsModelLink/PhysicsModelLink/\
-Kernel/PhysicsModelLink.wl", "Editor" -> Automatic|>], "Hash" -> 
-                 7124972217795407782, "Position" -> 
-                 "\!\(\*StyleBox[\"\\\" (L264,C7) \\\"\", Rule[FontOpacity, \
-0.65`], Rule[FontSize, Times[0.9`, Inherited]], Rule[PrivateFontOptions, \
-List[Rule[\"OperatorSubstitution\", False]]], Rule[StripOnInput, \
-False]]\)"|>]; DefinitionNotebookClient`PackageScope`seekAfter[993708341]; 
+                "ce9f0052-3adb-412a-9ac9-61220cd38932", 1253032187, 
+                "FoundUnformattedCode", {"Graphics3D"}]; 
+              DefinitionNotebookClient`PackageScope`seekAfter[1253032187]; 
               Null], TemplateBox[{
                PaneBox[
                 TemplateBox[{
@@ -17020,8 +17086,26 @@ False]]\)"|>]; DefinitionNotebookClient`PackageScope`seekAfter[993708341];
                    0.49019607843137253`]}, "HintPodIconHint"], 
                 ImageSize -> {10, 10}, ImageSizeAction -> "ShrinkToFit", 
                 BaselinePosition -> Scaled[0.1]], "\" \"", 
-               "\"The definition notebook is typically saved in the paclet \
-directory as \\\"ResourceDefinition.nb\\\"\""}, "RowDefault"] :> 
+               "\"\\\"$SystemID\\\" appears to be unformatted code\""}, 
+              "RowDefault"] :> DefinitionNotebookClient`WithCurrentNotebook[
+              EvaluationNotebook[], 
+              DefinitionNotebookClient`LoadDefinitionNotebook[
+               "Paclet", DefinitionNotebookClient`$CurrentNotebook]; 
+              DefinitionNotebookClient`PackageScope`setHint[
+               "Suggestion", "Paclet", 
+                DefinitionNotebookClient`$CurrentNotebook, 
+                "e61af48d-2891-442e-9f83-b5ff8810dc68", 1253032187, 
+                "FoundUnformattedCode", {"$SystemID"}]; 
+              DefinitionNotebookClient`PackageScope`seekAfter[1253032187]; 
+              Null], TemplateBox[{
+               PaneBox[
+                TemplateBox[{
+                  RGBColor[
+                  0.49019607843137253`, 0.49019607843137253`, 
+                   0.49019607843137253`]}, "HintPodIconHint"], 
+                ImageSize -> {10, 10}, ImageSizeAction -> "ShrinkToFit", 
+                BaselinePosition -> Scaled[0.1]], "\" \"", 
+               "\"Extra whitespace should be removed\""}, "RowDefault"] :> 
             DefinitionNotebookClient`WithCurrentNotebook[
               EvaluationNotebook[], 
               DefinitionNotebookClient`LoadDefinitionNotebook[
@@ -17029,16 +17113,35 @@ directory as \\\"ResourceDefinition.nb\\\"\""}, "RowDefault"] :>
               DefinitionNotebookClient`PackageScope`setHint[
                "Suggestion", "Paclet", 
                 DefinitionNotebookClient`$CurrentNotebook, 
-                "4ddafaed-4db3-4ae2-8d11-8e248624df0d", 2115563686, 
-                "DefinitionNotebookFileName", <|
-                "Expected" -> 
-                 "/Users/arnoudb/github/PhysicsModelLink/PhysicsModelLink/\
-ResourceDefinition.nb", "Actual" -> 
-                 "/Users/arnoudb/github/PhysicsModelLink/PhysicsModelLink/\
-PhysicsModelLink | Definition Notebook.nb", "PacletDirectory" -> 
-                 File["/Users/arnoudb/github/PhysicsModelLink/\
-PhysicsModelLink"]|>]; 
-              DefinitionNotebookClient`PackageScope`seekAfter[2115563686]; 
+                "b768c609-5c60-4985-bf1c-9d453bedfd70", 1253032187, 
+                "ExtraWhitespace", {
+                 Cell[
+                 "Simulations are stateful: CreatePhysicsModel allocates a \
+persistent physics world in memory, and DestroyPhysicsModel frees it. Each \
+world is identified by an integer handle.\nBodies are classified as either \
+DynamicBody (affected by gravity and collisions) or FixedBody (immovable \
+obstacles/floors).\nEach body has physical material properties that can be \
+set via options: \"Density\" (default 1.0), \"Restitution\" (bounciness, \
+default 0.5), and \"Friction\" (default 0.5).\nInitial velocities can be \
+assigned to dynamic bodies using the \"Velocity\" option.\nBody orientations \
+are tracked internally as quaternions and converted to/from 3\[Times]3 \
+rotation matrices for compatibility with GeometricTransformation.\nTime \
+evolution is performed with PhysicsModelIterate, which steps the simulation \
+by a given number of substeps at a fixed time increment dt. Smaller dt values \
+yield more accurate results.\nPhysicsModelEvolve is a convenience function \
+that collects a sequence of PhysicsModelObject frames for animation.\n\
+PhysicsModelPlot renders the current state as a Graphics3D scene, \
+automatically applying positions and rotations returned by the engine.\n\
+PhysicsBoundaryBox generates six invisible FixedBody walls to confine objects \
+within a bounding region.\nPhysicsModelVideo produces an AnimationVideo from \
+a list of simulation frames.\nThe Rapier library is compiled as a \
+platform-specific shared library (.dylib on macOS, .so on Linux, .dll on \
+Windows) and loaded from the paclet's LibraryResources/$SystemID/ directory \
+at package initialization.", "Notes", TaggingRules -> {}, 
+                  CellChangeTimes -> {{3.985007074001012*^9, 
+                   3.985007109509831*^9}}, CellTags -> "DefaultContent", 
+                  CellID -> 1253032187]}]; 
+              DefinitionNotebookClient`PackageScope`seekAfter[1253032187]; 
               Null]}, Appearance -> None], "BoxID" -> "WarningCountButton", 
           StripOnInput -> False], 
          TagBox[
@@ -17104,8 +17207,8 @@ PhysicsModelLink"]|>];
                  Not[
                   FreeQ[
                   DefinitionNotebookClient`Stripes`PackagePrivate`c$, 
-                   "12ff0a3c-0db3-4976-9ffe-7205df6dd8a0"]]]]]], Appearance -> 
-           None, BoxID -> "12ff0a3c-0db3-4976-9ffe-7205df6dd8a0", Evaluator -> 
+                   "ccb13bb7-3733-42f1-ba98-73b68d032b4d"]]]]]], Appearance -> 
+           None, BoxID -> "ccb13bb7-3733-42f1-ba98-73b68d032b4d", Evaluator -> 
            Automatic, Method -> "Preemptive"], 
           MouseAppearanceTag["LinkHand"]]}}, 
        GridBoxAlignment -> {"Columns" -> {{Left}}, "Rows" -> {{Baseline}}}, 
@@ -18017,7 +18120,6 @@ AsyncronousResourceInformationUpdates = False,
                 Quiet[
                  
                  Block[{$ContextPath = RSNB`$cp$, 
-                   
                    ResourceSystemClient`$\
 AsyncronousResourceInformationUpdates = False, 
                    DefinitionNotebookClient`$ButtonCodeID = None}, 
@@ -18569,6 +18671,7 @@ h/Fh4QMzDxZ+6PEFAOibv7E=
                    FaceForm[{
                     RGBColor[0.55294, 0.67451, 0.81176], 
                     Opacity[1.]}], 
+                   
                    FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}}}, {{{
                     122.17, 78.363}, {182.42, 113.07}, {182.36, 43.614}, {
                     122.17, 78.363}}}]}, {
@@ -18701,6 +18804,7 @@ AsyncronousResourceInformationUpdates = False,
                 Quiet[
                  
                  Block[{$ContextPath = RSNB`$cp$, 
+                   
                    ResourceSystemClient`$\
 AsyncronousResourceInformationUpdates = False, 
                    DefinitionNotebookClient`$SuppressDynamicEvents = True, 
@@ -19313,6 +19417,7 @@ Repository\"", True}, "OrangeButtonTemplate"]]], StandardForm], Evaluator ->
                 FaceForm[{
                   RGBColor[0.96078, 0.50588, 0.19608], 
                   Opacity[1.]}], 
+                
                 FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {
                   0, 1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 
                   1, 0}}, {{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
@@ -23805,8 +23910,8 @@ directory.\""}, "PacletDirectoryChooserErrorTemplate"]], "AttachedMessage"],
                     EdgeForm[
                     RGBColor[0.65098, 0.65098, 0.65098, 1.]], 
                     FaceForm[
-                    RGBColor[0.98039, 0.98039, 0.98039, 1.]]}, StripOnInput -> 
-                    False], 
+                    RGBColor[0.98039, 0.98039, 0.98039, 1.]]}, StripOnInput -> F\
+alse], 
                     StyleBox[{
                     
                     FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
@@ -24153,6 +24258,7 @@ RefreshNotebookPacletFiles[RSNB`nbo, RSNB`cell]]]],
                     EvaluationCell[], 
                     Cell[
                     BoxData[
+                    
                     TemplateBox[{"\"The current notebook is not saved.\""}, 
                     "PacletDirectoryChooserErrorTemplate"]], 
                     "AttachedMessage"], "Inline", 
@@ -24385,7 +24491,6 @@ directory.\""}, "PacletDirectoryChooserErrorTemplate"]], "AttachedMessage"],
                     GraphicsBox[{
                     Thickness[0.02439], 
                     StyleBox[{
-                    
                     FilledCurveBox[{{{0, 2, 0}, {0, 1, 0}, {0, 1, 0}, {0, 1, 
                     0}}}, {{{0., 41.}, {40.32, 41.}, {40.32, 0.68}, {0., 
                     0.68}, {0., 41.}}}]}, {
@@ -25131,6 +25236,6 @@ GRPf1sw3cDj8VSOm/5G9w5vAHXKt3IZQ/0HDoQHBFwFFwBcEHxR9zQlGcP3o
     CellMargins -> {{60, 40}, {15, 5}}]}, Visible -> False, FrontEndVersion -> 
   "14.3 for Mac OS X ARM (64-bit) (July 8, 2025)", StyleDefinitions -> 
   "PrivateStylesheetFormatting.nb"],
-ExpressionUUID->"894e63c6-6c41-4971-a170-f6758531aeda"
+ExpressionUUID->"4d57718d-6be6-4dd8-9d2b-5434ca5953c1"
 ]
 
