@@ -1,8 +1,8 @@
 (* Cylinder Rain — many small cylinders raining into a bowl-like enclosure *)
 
 projectDir = DirectoryName[$InputFileName, 3];
-PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsLink"}]];
-Needs["PhysicsLink`"];
+PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsModelLink"}]];
+Needs["PhysicsModelLink`"];
 
 Print["Generating cylinder rain video..."];
 

@@ -1,8 +1,8 @@
 (* Sphere Stack — spheres of different sizes stacked and tumbling *)
 
 projectDir = DirectoryName[$InputFileName, 3];
-PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsLink"}]];
-Needs["PhysicsLink`"];
+PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsModelLink"}]];
+Needs["PhysicsModelLink`"];
 
 Print["Generating sphere stack video..."];
 

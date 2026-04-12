@@ -1,5 +1,5 @@
 #!/bin/bash
-# Generate all PhysicsLink gallery videos
+# Generate all PhysicsModelLink gallery videos
 # Usage: ./web/scripts/generate_all.sh
 
 set -e
@@ -14,7 +14,7 @@ fi
 
 mkdir -p "$SCRIPT_DIR/../videos"
 
-echo "=== Generating PhysicsLink Gallery Videos ==="
+echo "=== Generating PhysicsModelLink Gallery Videos ==="
 
 for script in \
     "$SCRIPT_DIR"/bouncing_ball.wl \

@@ -1,8 +1,8 @@
 (* Capsule Drop — capsules tumbling down a stepped ramp *)
 
 projectDir = DirectoryName[$InputFileName, 3];
-PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsLink"}]];
-Needs["PhysicsLink`"];
+PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsModelLink"}]];
+Needs["PhysicsModelLink`"];
 
 Print["Generating capsule drop video..."];
 

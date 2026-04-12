@@ -1,4 +1,4 @@
-BeginPackage["PhysicsLink`"];
+BeginPackage["PhysicsModelLink`"];
 
 RapierVersion::usage = "RapierVersion[] returns the version string of the linked rapier3d Rust crate.";
 RapierCuboidMass::usage = "RapierCuboidMass[hx, hy, hz, density] returns the theoretical mass of a cuboid.";
@@ -43,7 +43,7 @@ physicsLinkLibraryPath[] := Module[{ext, libName = "librapier_rs"},
   FileNameJoin[{$physicsLinkPacletDir, "LibraryResources", $SystemID, libName <> ext}]
 ];
 
-loadPhysicsLinkLibrary[] := Module[{libPath},
+loadPhysicsModelLinkLibrary[] := Module[{libPath},
   libPath = physicsLinkLibraryPath[];
   If[FileExistsQ[libPath],
     libPath,
@@ -53,7 +53,7 @@ loadPhysicsLinkLibrary[] := Module[{libPath},
 
 (* --- Function definition using LibraryLink --- *)
 
-$physicsLinkLib = loadPhysicsLinkLibrary[];
+$physicsLinkLib = loadPhysicsModelLinkLibrary[];
 
 If[$physicsLinkLib =!= $Failed,
   $iRapierVersion = LibraryFunctionLoad[$physicsLinkLib, "rapier_version", {}, "UTF8String"];

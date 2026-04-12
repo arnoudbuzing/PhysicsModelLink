@@ -3,8 +3,8 @@
 (* High-Level Physics Model API Example *)
 
 projectDir = DirectoryName[$InputFileName, 2];
-PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsLink"}]];
-Needs["PhysicsLink`"];
+PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsModelLink"}]];
+Needs["PhysicsModelLink`"];
 
 Print["--- Physics Model API Example ---"];
 

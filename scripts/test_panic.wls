@@ -1,6 +1,6 @@
 #!/usr/bin/env wolframscript
-PacletDirectoryLoad[FileNameJoin[{DirectoryName[$InputFileName, 2], "PhysicsLink"}]];
-Needs["PhysicsLink`"];
+PacletDirectoryLoad[FileNameJoin[{DirectoryName[$InputFileName, 2], "PhysicsModelLink"}]];
+Needs["PhysicsModelLink`"];
 Print["Init"];
 worldId = RapierWorldCreate[{0.0, 0.0, -9.81}];
 floorId = RapierAddRigidBody[worldId, {0.0, 0.0, -1.0}, "Fixed"];

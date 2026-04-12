@@ -1,8 +1,8 @@
 (* Mixed Shapes — multiple dynamic objects falling onto a floor with obstacles *)
 
 projectDir = DirectoryName[$InputFileName, 3];
-PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsLink"}]];
-Needs["PhysicsLink`"];
+PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsModelLink"}]];
+Needs["PhysicsModelLink`"];
 
 Print["Generating mixed shapes video..."];
 

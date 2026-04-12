@@ -1,8 +1,8 @@
 (* Pyramid Collapse — a pyramid of cuboids hit by a heavy sphere *)
 
 projectDir = DirectoryName[$InputFileName, 3];
-PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsLink"}]];
-Needs["PhysicsLink`"];
+PacletDirectoryLoad[FileNameJoin[{projectDir, "PhysicsModelLink"}]];
+Needs["PhysicsModelLink`"];
 
 Print["Generating pyramid collapse video..."];
 

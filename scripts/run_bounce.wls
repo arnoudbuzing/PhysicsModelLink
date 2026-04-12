@@ -1,7 +1,7 @@
 #!/usr/bin/env wolframscript
 
-PacletDirectoryLoad[FileNameJoin[{DirectoryName[$InputFileName, 2], "PhysicsLink"}]];
-Needs["PhysicsLink`"];
+PacletDirectoryLoad[FileNameJoin[{DirectoryName[$InputFileName, 2], "PhysicsModelLink"}]];
+Needs["PhysicsModelLink`"];
 
 Print["--- Starting Rapier 3D Simulation ---"];
 worldId = RapierWorldCreate[{0.0, 0.0, -9.81}];
