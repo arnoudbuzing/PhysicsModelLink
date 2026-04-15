@@ -1494,7 +1494,7 @@ Cell[BoxData[
 },
 WindowSize->{1470, 894},
 WindowMargins->{{0, Automatic}, {Automatic, 0}},
-FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (April 13, 2026)",
+FrontEndVersion->"15.0 for Mac OS X ARM (64-bit) (April 14, 2026)",
 StyleDefinitions->"Default.nb",
 ExpressionUUID->"9bb5930f-5da6-4bb1-9770-ad7ef980f86a"
 ]
@@ -1524,4 +1524,6 @@ Cell[83934, 1487, 251, 5, 29, "Input",ExpressionUUID->"d1ee5651-f522-47c7-89d6-1
 }
 ]
 *)
+
+(* End of internal cache information *)
 
