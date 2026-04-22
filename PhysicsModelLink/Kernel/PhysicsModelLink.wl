@@ -47,8 +47,13 @@ QuaternionToTransformation[{qx_?NumericQ, qy_?NumericQ, qz_?NumericQ, qw_?Numeri
 
 $physicsLinkPacletDir = DirectoryName[$InputFileName, 2];
 
-physicsLinkLibraryPath[] := Module[{ext, libName = "librapier_rs"},
-  ext = Switch[$OperatingSystem, "MacOSX", ".dylib", "Unix", ".so", "Windows", ".dll"];
+physicsLinkLibraryPath[] := Module[{ext, prefix, libName},
+  {prefix, ext} = Switch[$OperatingSystem,
+    "MacOSX", {"lib", ".dylib"},
+    "Unix",   {"lib", ".so"},
+    "Windows", {"", ".dll"}
+  ];
+  libName = prefix <> "rapier_rs";
   FileNameJoin[{$physicsLinkPacletDir, "LibraryResources", $SystemID, libName <> ext}]
 ];
 
