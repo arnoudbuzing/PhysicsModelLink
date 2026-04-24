@@ -19,6 +19,19 @@
             "File"
             ->
             File[
+                "LibraryResources/Linux-x86-64/librapier_rs.so"
+            ]
+            ,
+            "Hash"
+            ->
+            "ddb5ec9b023845a041ae0cc73a43b522c13eaa7805a9a250d8bec1e3cf693561"
+                
+        |>
+        ,
+        <|
+            "File"
+            ->
+            File[
                 "LibraryResources/MacOSX-ARM64/librapier_rs.dylib"
             ]
             ,
